@@ -1,0 +1,72 @@
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #ffffff;
+}
+
+.logo {
+  cursor: pointer;
+}
+
+.search-bar input {
+  width: 637px;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  border: 1px solid #C6C6C6;
+  background: var(--light-grey-input-fiels-forms, #F6F6F6);
+}
+
+.auth-buttons button {
+  font-family: Noto Sans;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  width: 117px;
+  height: 38px;
+  padding: 5px;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-left: 7px;
+  text-align: center;
+}
+
+.login-button {
+  font-family: Noto Sans;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  width: 117px;
+  height: 38px;
+  padding: 5px;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-left: 7px;
+  text-align: center;
+  background-color: #ffffff;
+  border: 1.5px solid rgba(58, 58, 58, 0.7);
+  color: rgba(58, 58, 58, 0.7);
+  letter-spacing: 0.2px;
+}
+
+.signup-button {
+  font-family: Noto Sans;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  width: 117px;
+  height: 38px;
+  padding: 5px;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-left: 7px;
+  text-align: center;
+  background-color: #D9534F;
+  color: #fff;
+  border: none;
+}/*# sourceMappingURL=navbar.css.map */
