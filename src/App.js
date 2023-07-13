@@ -1,14 +1,22 @@
 import React from 'react';
-import Navbar from './components/Navbar/navbar';
-import './components/Navbar/navbar.css';
-//import './assets/style/style.scss'
+//import { BrowserRouter as Router, Route } from 'react-router-dom';
+//import './assets/style.css';
+
+import Navbar from './components/Navbar';
+import LandingPage from './components/LandingPage';
+//import Header from './components/Header/header';
+import Mainboard from './components/Mainboard';
+//import Login from './pages/Login'
+
 
 
 function App() {
   return (
-    <div>
-      <Navbar />
-    </div>
+      <div className="app">
+        <Navbar /> 
+        <LandingPage />
+        <Mainboard />
+      </div>
   );
 }
 
