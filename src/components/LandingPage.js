@@ -1,4 +1,5 @@
 import React from 'react';
+
 import styled from "styled-components";
 import BackgrImage from '../assets/image/Landingpage.svg';
 //import Image1 from '../assets/image/ldp-image1.png'

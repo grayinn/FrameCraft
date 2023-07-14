@@ -1,13 +1,22 @@
 
-import React from "react";
-import Navbar from "../components/Navbar";
+import React from 'react';
+import LoginForm from '../components/LoginForm';
 
+const Login = () => {
+  const handleLogin = (credentials) => {
+    // Xử lý đăng nhập ở đây, ví dụ: gửi thông tin đăng nhập đến server
 
-function Login() {
+    // Sau khi xử lý, có thể điều hướng người dùng đến trang khác hoặc cập nhật state
+    console.log(credentials);
+  };
+
   return (
-    <Navbar></Navbar>
+    <div>
+      <h1>Login</h1>
+      <LoginForm onLogin={handleLogin} />
+    </div>
+  );
+};
 
-  )
-}
+export default Login;
 
-export default Login

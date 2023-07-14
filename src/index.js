@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router} from "react-router-dom";
 //Switch, Route
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 //import { Provider } from 'react-redux'
 //import store from '../src/redux-toolkit-store/toolkit-store'
+//import Navbar from './components/Navbar';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

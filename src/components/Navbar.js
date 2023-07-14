@@ -4,6 +4,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import navbarlogo from '../assets/image/logo.svg';
 import styled from "styled-components";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 function Navbar() {
@@ -17,14 +18,14 @@ function Navbar() {
 
       <SearchWrapper>
         <SearchBarWapper>
-
-          <IconButton>
-            <SearchIcon />
-          </IconButton>
           
           <form>
             <input type="text" placeholder="Search..." />
           </form>
+
+          <IconButton>
+            <SearchIcon />
+          </IconButton>
 
         </SearchBarWapper>
       </SearchWrapper>
@@ -151,8 +152,8 @@ const SearchBarWapper = styled.div`
 `
 
 const IconButton = styled.div`
-  padding-top: 6px;
   color: gray;
   cursor: pointer;
+  padding-right: 6px
 `
 
