@@ -1,19 +1,18 @@
 import React from 'react'
+import { styled } from 'styled-components'
 import Pin1 from '../assets/image/Pin1.png'
-import { styled } from 'styled-components';
 
 function Pin() {
   return (
     <Wrapper>
         <Container>
             <img src={Pin1} alt="" style={{ width: '240px' }} />
-
         </Container>
     </Wrapper>
   )
 }
 
-export default Pin;
+export default Pin
 
 const Wrapper = styled.div`
     display: inline-flex;

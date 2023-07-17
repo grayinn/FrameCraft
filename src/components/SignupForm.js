@@ -1,35 +1,37 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { Form } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { styled } from 'styled-components'
 import AuthLogin from './AuthLogin'
-import { Link } from 'react-router-dom'
 
 
-function LoginForm({ onLogin }) {
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
-    const [showPassword, setShowPassword] = useState(false)
-
+const SignUpForm = ({ onSignUp }) => {
+    const [email, setEmail] = useState('');
+    const [username, setUsername] = useState('');
+    const [phone, setPhone] = useState('');
+    const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
+    const [showPassword, setShowPassword] = useState(false);
 
     const handleSubmit = (e) => {
-        e.preventDefault()
-        // Gọi func onLogin, truyền tt đăng nhập
-        onLogin({ email, password })
+        e.preventDefault();
+    // Gọi onSignUp và truyền tt đăng ký
+        onSignUp({ email, username, phone, password });
     }
 
     const handleTogglePasswordVisibility = () => {
-        setShowPassword((prevShowPassword) => !prevShowPassword)
+        setShowPassword((prevShowPassword) => !prevShowPassword);
     }
 
     return (
         <Wrapper onSubmit={handleSubmit}>
             <StyledTitle>
-                <h1>Log in</h1>
+                <h1>Sign Up</h1>
             </StyledTitle>
 
             <FormGroup>
-                <StyledEmail
+                <StyledInput
                     type="email"
                     placeholder="Enter your email"
                     value={email}
@@ -39,68 +41,90 @@ function LoginForm({ onLogin }) {
             </FormGroup>
 
             <FormGroup>
-                <StyledPassword
+                <StyledInput
+                    type="text"
+                    placeholder="Your user name"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                    autoComplete="new-username"
+                />
+
+                <StyledInput
+                    type="text"
+                    placeholder="Your phone number"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    autoComplete="new-phone"
+                />
+            </FormGroup>
+
+            <FormGroup>
+                <StyledInput
                     type={showPassword ? 'text' : 'password'}
-                    placeholder="Enter your password"
+                    placeholder="Create your password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    autoComplete="new-password"                 
+                    autoComplete="new-password"
                 />
                 <VisibilityIcon onClick={handleTogglePasswordVisibility}>
                 </VisibilityIcon>
-
             </FormGroup>
 
-            <StyledAuth>
-                <Form.Check
-                    type="checkbox"
-                    label={<RememberLabel>Remember me</RememberLabel>}
+            <FormGroup>
+                <StyledConfirm
+                    type={showPassword ? 'text' : 'password'}
+                    placeholder="Confirm your password"
+                    value={confirmPassword}
+                    onChange={(e) => setConfirmPassword(e.target.value)}
+                    autoComplete="new-password"
                 />
-                <ForgotLink href="/forgotpassword">Forgot password</ForgotLink>
-            </StyledAuth>
-    
+                <VisibilityIcon onClick={handleTogglePasswordVisibility}>
+                </VisibilityIcon>
+            </FormGroup>
+
 
             <StyledButton variant="primary" type="submit">
-                <p>Log in</p>
+                <p>Sign Up</p>
                 <h6>OR</h6>
             </StyledButton>
 
             <AuthLogin />
 
             <StyledConnect>
-                <p>Don't have an account?</p>
-                <SignInLink to='/signup'>Sign up now!</SignInLink>
+                <p>Already have an account?</p>
+                <SignInLink to='/signup'>Log in now!</SignInLink>
             </StyledConnect>
+
         </Wrapper>
     )
 }
 
-export default LoginForm
+export default SignUpForm
 
-const Wrapper = styled(Form)`
+
+const Wrapper = styled.form`
     width: 40%;
     padding: 65px 40px 30px 40px;
 `
 
-const StyledTitle = styled.form`
+const StyledTitle = styled.div`
     height: 78px;
-    //flex-shrink: 0;
     margin-bottom: 15px;
 `
 
-const FormGroup = styled.div`
+const FormGroup = styled(Form.Group)`
     display: flex;
-    width: 100%;
-    flex-shrink: 0;
+    flex-wrap: wrap;
 `
 
-const StyledEmail = styled(Form.Control)`
+const StyledInput = styled(Form.Control)`
+    flex: 1;
+    margin-right: 15px;
     height: 40px;
     background-color: white;
     border-radius: 0px;
     border: none;
     border-bottom: 1px solid #C7C7C7;
-
     margin-bottom: 25px;
 
     &:focus {
@@ -110,14 +134,15 @@ const StyledEmail = styled(Form.Control)`
     }
 `
 
-const StyledPassword = styled(Form.Control)`
+const StyledConfirm = styled(Form.Control)`
     height: 40px;
     background-color: white;
     border-radius: 0px;
     border: none;
     border-bottom: 1px solid #C7C7C7;
 
-    margin-bottom: 15px;
+    margin-bottom: 25px;
+    margin-right: 15px;
 
     &:focus {
         outline: none;
@@ -129,45 +154,8 @@ const StyledPassword = styled(Form.Control)`
 const VisibilityIcon = styled.div`
 `
 
-const StyledAuth = styled.div`
-    display: flex;
-    align-items: center;
-
-    .form-check-input {
-        &:checked {
-            background-color: #D9534F;
-        }
-    }
-`
-
-const RememberLabel = styled(Form.Label)`
-    color: #3A3A3A;
-    font-family: Noto Sans;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-`
-
-const ForgotLink = styled.a`
-    margin-left: auto;
-    color: #000;
-
-    color: #3A3A3A;
-    font-family: Noto Sans;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    text-decoration-line: underline;
-
-    &:hover {
-        color: #D9534F;
-    }
-`
-
 const StyledButton = styled.div`
-    padding-top: 60px;
+    padding-top: 40px;
 
     p {
         flex-shrink: 0;
@@ -183,6 +171,7 @@ const StyledButton = styled.div`
         padding: 5px;
 
         cursor: pointer;
+        //margin-left: 7px;
         text-align: center;
         background-color: #D9534F;
         border: 1.5px solid #D9534F;

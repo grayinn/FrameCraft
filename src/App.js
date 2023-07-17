@@ -11,6 +11,8 @@ import Mainboard from './components/Mainboard';
 //import Login from './pages/Login';
 //import Login from './pages/Login';
 import LoginForm from './components/LoginForm';
+import SignUpForm from './components/SignupForm';
+import Header from './components/Header'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
@@ -23,9 +25,11 @@ function App() {
       <Mainboard />
       {/* <Login /> */}
       <LoginForm />
-    </div>
+      <SignUpForm />
 
-  );
+      <Header />
+    </div>
+  )
 }
 
-export default App;
+export default App

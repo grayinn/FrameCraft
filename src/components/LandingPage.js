@@ -1,21 +1,13 @@
-import React from 'react';
-
-import styled from "styled-components";
-import BackgrImage from '../assets/image/Landingpage.svg';
+import React from 'react'
+import styled from "styled-components"
+import BackgrImage from '../assets/image/Landingpage.svg'
 //import Image1 from '../assets/image/ldp-image1.png'
 //import Image2 from '../assets/image/ldp-image2.png'
 //import Image3 from '../assets/image/ldp-image3.png'
 // import Image4 from '../assets/image/ldp-image4.png'
 // import Image5 from '../assets/image/ldp-image5.png'
-// import Image6 from '../assets/image/ldp-image6.png'
-// import Image7 from '../assets/image/ldp-image7.png'
-// import Image8 from '../assets/image/ldp-image8.png'
-// import Image9 from '../assets/image/ldp-image9.png'
-// import Image10 from '../assets/image/ldp-image10.png'
-// import Image11 from '../assets/image/ldp-image11.png'
 
-
-function LandingPage() {
+const LandingPage = () => {
   return (
       <Wrapper>
           <BackgroundIMG>
@@ -39,8 +31,9 @@ function LandingPage() {
       </Wrapper>
   )
 }
+export default LandingPage
 
-export default LandingPage;
+
 
 const Wrapper = styled.div`
   background-color: #D9534F;
@@ -81,7 +74,7 @@ const Content1 = styled.div`
   font-size: 53px;
   font-style: normal;
   font-weight: 400;
-  line-height: 125px; /* 126.214% */
+  line-height: 125px; 
   letter-spacing: 0.2px;
 
 `

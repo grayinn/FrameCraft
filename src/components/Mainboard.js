@@ -1,6 +1,6 @@
-import React from 'react';
-import styled from "styled-components";
-import Pin from './Pin';
+import React from 'react'
+import styled from "styled-components"
+import Pin from './Pin'
 
 
 
@@ -14,7 +14,7 @@ function Mainboard() {
     )
 }
 
-export default Mainboard;
+export default Mainboard
 
 const Wrapper = styled.div`
     background-color: red;
