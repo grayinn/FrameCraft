@@ -1,4 +1,5 @@
 import SearchIcon from '@mui/icons-material/Search'
+// import React, { useState } from 'react'
 import React from 'react'
 import { Link } from 'react-router-dom'
 import navbarlogo from '../assets/image/logo.svg'
@@ -8,8 +9,20 @@ import AddIcon from '@mui/icons-material/Add'
 import NotificationsIcon from '@mui/icons-material/Notifications'
 import AccountCircleIcon from '@mui/icons-material/AccountCircle'
 
+// props: {
+//   onSubmit: onSearchSubmit()
+// }
 
-const Header = () => {
+// function Header(props) {
+  function Header() {
+  // const [input, setInput] = useState(" ")
+
+  // const onSearchSubmit = (e) => {
+  //   e.preventDefault()
+  //   props.onSubmit(input)
+  //   //console.log("This is the input", input)
+  // }
+
   return (
     <Wrapper>
       <LogoWrapper>
@@ -22,11 +35,16 @@ const Header = () => {
         <SearchBarWapper>
           
           <form>
-            <input type="text" placeholder="Search..." />
+            <input 
+              // onChange={(e) => setInput(e.target.value)}
+              type="text" 
+              placeholder="Search..." 
+            />
           </form>
 
           <IconButton>
             <SearchIcon />
+            {/* <SearchIcon type="submit" onClick={onSearchSubmit}/> */}
           </IconButton>
 
         </SearchBarWapper>
@@ -38,7 +56,9 @@ const Header = () => {
         </AddIconButton>
 
         <AddIconText>
+          <Link to='./createpost'>
             <p>Create Post</p>
+          </Link>
         </AddIconText>
       </CreatePost>
 
@@ -58,10 +78,12 @@ const Header = () => {
 export default Header
 
 const Wrapper = styled.form`
+    margin-top: 20px;              // cách tạm
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: white;
+
     margin-left: 50px;
     margin-right: 50px;
 `
@@ -139,6 +161,10 @@ const AddIconButton = styled.div`
 `
 
 const AddIconText = styled.div`
+    a {
+      color: #3A3A3A;
+      text-decoration: none;
+    }
 `
 
 const IconsWrapper = styled.div`

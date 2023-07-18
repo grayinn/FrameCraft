@@ -104,12 +104,16 @@ export default SignUpForm
 
 const Wrapper = styled.form`
     width: 40%;
-    padding: 65px 40px 30px 40px;
+    padding: 60px 50px 30px 50px;
+
+    border-radius: 20px;
+    background: #FFF;
+    box-shadow: 0px 0px 5px 2px rgba(58, 58, 58, 0.20);
 `
 
 const StyledTitle = styled.div`
     height: 78px;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 `
 
 const FormGroup = styled(Form.Group)`
@@ -155,7 +159,10 @@ const VisibilityIcon = styled.div`
 `
 
 const StyledButton = styled.div`
-    padding-top: 40px;
+    padding-top: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
     p {
         flex-shrink: 0;
@@ -186,7 +193,8 @@ const StyledButton = styled.div`
 
 const StyledConnect = styled.div`
     display: flex;
-    align-items: center;
+    justify-content: center; 
+    margin-top: 20px;
 
     p {
         margin-right: 10px;

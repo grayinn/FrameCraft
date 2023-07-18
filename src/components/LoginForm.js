@@ -79,13 +79,16 @@ export default LoginForm
 
 const Wrapper = styled(Form)`
     width: 40%;
-    padding: 65px 40px 30px 40px;
+    padding: 60px 50px 30px 50px;
+
+    border-radius: 20px;
+    background: #FFF;
+    box-shadow: 0px 0px 5px 2px rgba(58, 58, 58, 0.20);
 `
 
 const StyledTitle = styled.form`
     height: 78px;
-    //flex-shrink: 0;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 `
 
 const FormGroup = styled.div`
@@ -101,7 +104,7 @@ const StyledEmail = styled(Form.Control)`
     border: none;
     border-bottom: 1px solid #C7C7C7;
 
-    margin-bottom: 25px;
+    margin-bottom: 30px;
 
     &:focus {
         outline: none;
@@ -167,10 +170,13 @@ const ForgotLink = styled.a`
 `
 
 const StyledButton = styled.div`
-    padding-top: 60px;
+    padding-top: 55px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
     p {
-        flex-shrink: 0;
+        //flex-shrink: 0;
 
         border-radius: 20px;
         background: #D9534F;
@@ -182,7 +188,6 @@ const StyledButton = styled.div`
         height: 40px;
         padding: 5px;
 
-        cursor: pointer;
         text-align: center;
         background-color: #D9534F;
         border: 1.5px solid #D9534F;
@@ -193,11 +198,18 @@ const StyledButton = styled.div`
     &:hover p {
         background-color: #EC5E5A;
     }
+
+    h6 {
+        margin-top: 20px;
+        margin-bottom: 30px;
+    }
 `
 
 const StyledConnect = styled.div`
     display: flex;
+    justify-content: center; 
     align-items: center;
+    margin-top: 40px;
 
     p {
         margin-right: 10px;

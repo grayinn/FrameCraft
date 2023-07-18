@@ -4,8 +4,7 @@ import BackgrImage from '../assets/image/Landingpage.svg'
 //import Image1 from '../assets/image/ldp-image1.png'
 //import Image2 from '../assets/image/ldp-image2.png'
 //import Image3 from '../assets/image/ldp-image3.png'
-// import Image4 from '../assets/image/ldp-image4.png'
-// import Image5 from '../assets/image/ldp-image5.png'
+
 
 const LandingPage = () => {
   return (
@@ -38,7 +37,7 @@ export default LandingPage
 const Wrapper = styled.div`
   background-color: #D9534F;
   background-size: cover;
-  // background-position: center;
+
   background-repeat: no-repeat;
   width: 100vw;
   height: 100vh;
@@ -76,7 +75,6 @@ const Content1 = styled.div`
   font-weight: 400;
   line-height: 125px; 
   letter-spacing: 0.2px;
-
 `
 
 const Content2 = styled.div`

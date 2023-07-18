@@ -52,10 +52,13 @@ const AuthLogin = () => {
         Continue with Facebook
       </FacebookLoginButton>
     </Wrapper>
-  );
-};
+  )
+}
 
 export default AuthLogin
 
 const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `

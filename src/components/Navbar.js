@@ -1,10 +1,9 @@
-
-import SearchIcon from '@mui/icons-material/Search';
-import React from 'react';
-import { Link } from 'react-router-dom';
-import navbarlogo from '../assets/image/logo.svg';
-import styled from "styled-components";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import SearchIcon from '@mui/icons-material/Search'
+import React from 'react'
+import { Link } from 'react-router-dom'
+import navbarlogo from '../assets/image/logo.svg'
+import styled from "styled-components"
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 
 function Navbar() {
@@ -18,11 +17,10 @@ function Navbar() {
 
       <SearchWrapper>
         <SearchBarWapper>
-          
           <form>
             <input type="text" placeholder="Search..." />
           </form>
-
+          
           <IconButton>
             <SearchIcon />
           </IconButton>
@@ -40,10 +38,10 @@ function Navbar() {
         </SignupButton>
       </AuthButton>
     </Wrapper>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default Navbar
 
 
 const Wrapper = styled.div`
@@ -51,6 +49,7 @@ const Wrapper = styled.div`
     justify-content: space-between;
     align-items: center;
     background-color: white;
+
     margin-left: 50px;
     margin-right: 50px;
 `
