@@ -33,7 +33,6 @@ const LandingPage = () => {
 export default LandingPage
 
 
-
 const Wrapper = styled.div`
   background-color: #D9534F;
   background-size: cover;
@@ -58,40 +57,27 @@ const ContentWrapper = styled.div`
   float: left;
   margin-left: 50px;
   margin-top: 70px;
-
   position: relative;
 `
-
-const Content1 = styled.div`
+const CommonContent = `
   width: 60%;
-  height: 50%px;
+  height: 50%;
   flex-shrink: 0;
-
   color: #FFF;
-  text-shadow: 1px 2px 4px #C2403C;
   font-family: Fugaz One;
   font-size: 53px;
-  font-style: normal;
   font-weight: 400;
   line-height: 125px; 
   letter-spacing: 0.2px;
+`
+const Content1 = styled.div`
+  ${CommonContent}
+  text-shadow: 1px 2px 4px #C2403C;
 `
 
 const Content2 = styled.div`
-  width: 60%;
-  height: 50%px;
-  flex-shrink: 0;
-
-  color: #FFF;
-  font-family: Fugaz One;
-  font-size: 53px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 125px; 
-
+  ${CommonContent}
   filter: blur(1px);
-  letter-spacing: 0.2px;
-
   position: absolute;
   top: 0;
   left: 0;
@@ -99,12 +85,9 @@ const Content2 = styled.div`
 
 const Content3 = styled.div`
   width: 50%;
-  flex-shrink: 0;
-
   color: #FFF;
   font-family: Noto Sans;
   font-size: 25px;
-  font-style: normal;
   font-weight: 400;
   line-height: normal;
 `

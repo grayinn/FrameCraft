@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { Form } from 'react-bootstrap'
-import 'bootstrap/dist/css/bootstrap.min.css'
 import { styled } from 'styled-components'
 import AuthLogin from './AuthLogin'
 import { Link } from 'react-router-dom'
@@ -28,7 +27,7 @@ function LoginForm({ onLogin }) {
                 <h1>Log in</h1>
             </StyledTitle>
 
-            <FormGroup>
+            <FormGroup >
                 <StyledEmail
                     type="email"
                     placeholder="Enter your email"
@@ -61,8 +60,12 @@ function LoginForm({ onLogin }) {
     
 
             <StyledButton variant="primary" type="submit">
-                <p>Log in</p>
-                <h6>OR</h6>
+                <TextButton>
+                    <p>Log in</p>
+                </TextButton>
+                <TextButton2>
+                    <h6>OR</h6>
+                </TextButton2>
             </StyledButton>
 
             <AuthLogin />
@@ -77,61 +80,49 @@ function LoginForm({ onLogin }) {
 
 export default LoginForm
 
+const commonStyleInput = `
+    border-radius: 0px;
+    border: none;
+    border-bottom: 1px solid #C7C7C7;
+
+    &:focus {
+        outline: none;
+        box-shadow: none;
+        border-bottom: 1px solid gray;
+    }
+`
+
+const commonRememberForgot = `
+    color: #3A3A3A;
+    font-size: 14px;
+    font-weight: 400;
+`
+
+// 1
 const Wrapper = styled(Form)`
     width: 40%;
     padding: 60px 50px 30px 50px;
-
     border-radius: 20px;
-    background: #FFF;
     box-shadow: 0px 0px 5px 2px rgba(58, 58, 58, 0.20);
+    font-family: Noto Sans;
 `
 
 const StyledTitle = styled.form`
-    height: 78px;
-    margin-bottom: 20px;
+    margin-bottom: 55px;
 `
-
 const FormGroup = styled.div`
-    display: flex;
-    width: 100%;
-    flex-shrink: 0;
 `
-
 const StyledEmail = styled(Form.Control)`
-    height: 40px;
-    background-color: white;
-    border-radius: 0px;
-    border: none;
-    border-bottom: 1px solid #C7C7C7;
-
+    ${commonStyleInput}
     margin-bottom: 30px;
-
-    &:focus {
-        outline: none;
-        box-shadow: none;
-        border-bottom: 1px solid gray;
-    }
 `
-
 const StyledPassword = styled(Form.Control)`
-    height: 40px;
-    background-color: white;
-    border-radius: 0px;
-    border: none;
-    border-bottom: 1px solid #C7C7C7;
-
+    ${commonStyleInput}
     margin-bottom: 15px;
-
-    &:focus {
-        outline: none;
-        box-shadow: none;
-        border-bottom: 1px solid gray;
-    }
 `
 
 const VisibilityIcon = styled.div`
 `
-
 const StyledAuth = styled.div`
     display: flex;
     align-items: center;
@@ -144,24 +135,12 @@ const StyledAuth = styled.div`
 `
 
 const RememberLabel = styled(Form.Label)`
-    color: #3A3A3A;
-    font-family: Noto Sans;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+    ${commonRememberForgot}
 `
 
 const ForgotLink = styled.a`
+    ${commonRememberForgot}
     margin-left: auto;
-    color: #000;
-
-    color: #3A3A3A;
-    font-family: Noto Sans;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
     text-decoration-line: underline;
 
     &:hover {
@@ -174,35 +153,27 @@ const StyledButton = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+`
 
-    p {
-        //flex-shrink: 0;
+const TextButton = styled.div`
+    border-radius: 20px;
+    background: #D9534F;
+    color: white;
+    font-size: 17px;
+    font-weight: 600;
+    width: 50%;
+    height: 40px;
+    padding: 5px;
+    text-align: center;
 
-        border-radius: 20px;
-        background: #D9534F;
-
-        font-family: Noto Sans;
-        font-size: 17px;
-        font-weight: 600;
-        width: 50%;
-        height: 40px;
-        padding: 5px;
-
-        text-align: center;
-        background-color: #D9534F;
-        border: 1.5px solid #D9534F;
-        text-decoration: none;
-        color: white;
-    } 
-
-    &:hover p {
+    &:hover {
         background-color: #EC5E5A;
     }
+`
 
-    h6 {
-        margin-top: 20px;
-        margin-bottom: 30px;
-    }
+const TextButton2 = styled.div`
+    margin-top: 30px;
+    margin-bottom: 20px;
 `
 
 const StyledConnect = styled.div`

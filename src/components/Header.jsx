@@ -1,28 +1,21 @@
-import SearchIcon from '@mui/icons-material/Search'
-// import React, { useState } from 'react'
 import React from 'react'
-import { Link } from 'react-router-dom'
-import navbarlogo from '../assets/image/logo.svg'
 import styled from "styled-components"
-import 'bootstrap/dist/css/bootstrap.min.css'
+import { Link } from 'react-router-dom'
+// import React, { useState } from 'react'
+import SearchIcon from '@mui/icons-material/Search'
 import AddIcon from '@mui/icons-material/Add'
 import NotificationsIcon from '@mui/icons-material/Notifications'
 import AccountCircleIcon from '@mui/icons-material/AccountCircle'
 
-// props: {
-//   onSubmit: onSearchSubmit()
-// }
+import navbarlogo from '../assets/image/logo.svg'
 
-// function Header(props) {
-  function Header() {
-  // const [input, setInput] = useState(" ")
+import { 
+  Wrapper, 
+  LogoWrapper, 
+  SearchBarWapper, 
+  IconButton } from '../styleCommon/Header'
 
-  // const onSearchSubmit = (e) => {
-  //   e.preventDefault()
-  //   props.onSubmit(input)
-  //   //console.log("This is the input", input)
-  // }
-
+const Header = () => {
   return (
     <Wrapper>
       <LogoWrapper>
@@ -33,18 +26,12 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle'
 
       <SearchWrapper>
         <SearchBarWapper>
-          
           <form>
-            <input 
-              // onChange={(e) => setInput(e.target.value)}
-              type="text" 
-              placeholder="Search..." 
-            />
+            <input type="text" placeholder="Search..." />
           </form>
 
           <IconButton>
             <SearchIcon />
-            {/* <SearchIcon type="submit" onClick={onSearchSubmit}/> */}
           </IconButton>
 
         </SearchBarWapper>
@@ -77,66 +64,11 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle'
 
 export default Header
 
-const Wrapper = styled.form`
-    margin-top: 20px;              // cách tạm
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: white;
-
-    margin-left: 50px;
-    margin-right: 50px;
-`
-
-const LogoWrapper = styled.div`
-    cursor: pointer;
-    padding-top: 10px;
-`
 
 const SearchWrapper = styled.div`
     margin-left: 80px;
 `
 
-const SearchBarWapper = styled.div`
-    background-color: #efefef;
-    display: flex;
-    height: 38px;
-    width: 100%
-    border-radius: 50px;
-    border: 1.5px solid #D9534F;
-    padding-left: 10px;
-
-    width: 637px;
-    padding: 10px;
-    justify-content: center;
-    align-items: center;
-    border-radius: 20px;
-    border: 1px solid #C6C6C6;
-    background: var(--light-grey-input-fiels-forms, #F6F6F6);
-
-    form {
-    display: flex;
-    flex: 1;
-    }
-
-    form > input {
-    background-color: transparent;
-    border: none;
-    width: 100%;
-    margin-left: 5px;
-    font-family: Noto Sans;
-    font-size: 15px
-    }
-
-    input:focus {
-    outline: none;
-    }
-`
-const IconButton = styled.div`
-    color: gray;
-    cursor: pointer;
-    padding-right: 6px;
-`
 const CreatePost = styled.div`
     display: flex;
     border-radius: 20px;
@@ -148,12 +80,11 @@ const CreatePost = styled.div`
     cursor: pointer;
     border: 1.5px solid #3A3A3A;
     padding: 7px;
+    margin-left: 60px;
 
     &:hover {
-        background-color: #F2F2F2;
+      background-color: #EBEBEB;
     }
-
-    margin-left: 60px;
 `
 
 const AddIconButton = styled.div`

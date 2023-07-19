@@ -105,10 +105,9 @@ export default SignUpForm
 const Wrapper = styled.form`
     width: 40%;
     padding: 60px 50px 30px 50px;
-
     border-radius: 20px;
-    background: #FFF;
     box-shadow: 0px 0px 5px 2px rgba(58, 58, 58, 0.20);
+    font-family: Noto Sans;
 `
 
 const StyledTitle = styled.div`
@@ -121,15 +120,13 @@ const FormGroup = styled(Form.Group)`
     flex-wrap: wrap;
 `
 
-const StyledInput = styled(Form.Control)`
-    flex: 1;
+const CommonInput = `
+    margin-bottom: 25px;
     margin-right: 15px;
     height: 40px;
-    background-color: white;
     border-radius: 0px;
     border: none;
     border-bottom: 1px solid #C7C7C7;
-    margin-bottom: 25px;
 
     &:focus {
         outline: none;
@@ -138,21 +135,13 @@ const StyledInput = styled(Form.Control)`
     }
 `
 
+const StyledInput = styled(Form.Control)`
+    flex: 1;
+    ${ CommonInput }
+`
+
 const StyledConfirm = styled(Form.Control)`
-    height: 40px;
-    background-color: white;
-    border-radius: 0px;
-    border: none;
-    border-bottom: 1px solid #C7C7C7;
-
-    margin-bottom: 25px;
-    margin-right: 15px;
-
-    &:focus {
-        outline: none;
-        box-shadow: none;
-        border-bottom: 1px solid gray;
-    }
+    ${ CommonInput }
 `
 
 const VisibilityIcon = styled.div`
@@ -170,7 +159,6 @@ const StyledButton = styled.div`
         border-radius: 20px;
         background: #D9534F;
 
-        font-family: Noto Sans;
         font-size: 17px;
         font-weight: 600;
         width: 50%;
@@ -178,7 +166,6 @@ const StyledButton = styled.div`
         padding: 5px;
 
         cursor: pointer;
-        //margin-left: 7px;
         text-align: center;
         background-color: #D9534F;
         border: 1.5px solid #D9534F;

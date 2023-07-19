@@ -5,7 +5,13 @@ import navbarlogo from '../assets/image/logo.svg'
 import styled from "styled-components"
 import 'bootstrap/dist/css/bootstrap.min.css'
 
+import { 
+  Wrapper, 
+  LogoWrapper, 
+  SearchBarWapper, 
+  IconButton } from '../styleCommon/Header'
 
+  
 function Navbar() {
   return (
     <Wrapper>
@@ -40,24 +46,8 @@ function Navbar() {
     </Wrapper>
   )
 }
-
 export default Navbar
 
-
-const Wrapper = styled.div`
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: white;
-
-    margin-left: 50px;
-    margin-right: 50px;
-`
-
-const LogoWrapper = styled.div`
-    cursor: pointer;
-    padding-top: 10px;
-`
 
 const AuthButton = styled.div`
     display: flex;
@@ -109,45 +99,3 @@ const SignupButton = styled.div`
 
 const SearchWrapper = styled.div`
 `
-const SearchBarWapper = styled.div`
-    background-color: #efefef;
-    display: flex;
-    height: 38px;
-    width: 100%
-    border-radius: 50px;
-    border: 1.5px solid #D9534F;
-    padding-left: 10px;
-
-    width: 637px;
-    padding: 10px;
-    justify-content: center;
-    align-items: center;
-    border-radius: 20px;
-    border: 1px solid #C6C6C6;
-    background: var(--light-grey-input-fiels-forms, #F6F6F6);
-
-    form {
-      display: flex;
-      flex: 1;
-    }
-
-    form > input {
-      background-color: transparent;
-      border: none;
-      width: 100%;
-      margin-left: 5px;
-      font-family: Noto Sans;
-      font-size: 15px
-    }
-
-    input:focus {
-      outline: none;
-    }
-`
-
-const IconButton = styled.div`
-    color: gray;
-    cursor: pointer;
-    padding-right: 6px
-`
-
