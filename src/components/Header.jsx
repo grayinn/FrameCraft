@@ -13,11 +13,14 @@ import {
   Wrapper, 
   LogoWrapper, 
   SearchBarWapper, 
-  IconButton } from '../styleCommon/Header'
+  IconButton,
+  Container,
+  SearchWrapper } from '../styleCommon/Header'
 
 const Header = () => {
   return (
     <Wrapper>
+      <Container>
       <LogoWrapper>
         <Link to='./framecraft'>
           <img src={navbarlogo} alt="" style={{ width: '240px' }} />
@@ -57,7 +60,7 @@ const Header = () => {
             <AccountCircleIcon fontSize="large" />
         </AvatarIcon>
       </IconsWrapper>
-
+      </Container>
     </Wrapper>
   )
 }
@@ -65,22 +68,16 @@ const Header = () => {
 export default Header
 
 
-const SearchWrapper = styled.div`
-    margin-left: 80px;
-`
-
 const CreatePost = styled.div`
     display: flex;
     border-radius: 20px;
-    width: 9%;
+    width: 10%;
     height: 40px;
-    font-family: Noto Sans;
     font-size: 15px;
     font-weight: 500;
     cursor: pointer;
     border: 1.5px solid #3A3A3A;
-    padding: 7px;
-    margin-left: 60px;
+    padding: 8px;
 
     &:hover {
       background-color: #EBEBEB;
@@ -88,7 +85,7 @@ const CreatePost = styled.div`
 `
 
 const AddIconButton = styled.div`
-    margin-right: 3px;
+    padding-right: 6px;
 `
 
 const AddIconText = styled.div`
@@ -100,15 +97,14 @@ const AddIconText = styled.div`
 
 const IconsWrapper = styled.div`
     display: flex;
-    justify-content: space-between;
 `
 
 const NotifIcon = styled.div`
-    color: #3A3A3A;
-    margin-right: 6px;
     display: flex;
+    color: #3A3A3A;
     margin-top: 5px;
-    margin-right: 50px;
+    margin-right: 70%;
+    margin-left: 70%;
     cursor: pointer;
 `
 

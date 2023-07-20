@@ -1,30 +1,41 @@
 import styled from "styled-components"
 
 export const Wrapper = styled.form`
-    display: flex;
     font-family: Noto Sans;
-    justify-content: space-between;
-    align-items: center;
     background-color: white;
+`
 
-    margin-left: 50px;
-    margin-right: 50px;
+export const Container = styled.div`
+    display: flex;
+    flex: 1;
+    align-items: center;
+
+    margin-right: 3.5%;
+    margin-left: 3.5%;
+
 `
 
 export const LogoWrapper = styled.div`
     cursor: pointer;
-    padding-top: 10px;
+    margin-top: 10px;
+    margin-right: 10%;
+`
+
+export const SearchWrapper = styled.div`
+    min-width: 42%;
+    margin-right: 10%;
 `
 
 export const SearchBarWapper = styled.div`
-    background-color: #efefef;
     display: flex;
+    flex: 1;
+    background-color: #efefef;
     height: 38px;
-    width: 100%
+    width: 100%;
     border-radius: 50px;
     border: 1.5px solid #D9534F;
 
-    width: 637px;
+    //min-width: 100%;
     padding: 10px;
 
     align-items: center;
@@ -33,20 +44,21 @@ export const SearchBarWapper = styled.div`
     background: var(--light-grey-input-fiels-forms, #F6F6F6);
 
     form {
-    display: flex;
-    flex: 1;
+        display: flex;
+        flex: 1;
     }
 
     form > input {
-    background-color: transparent;
-    border: none;
-    width: 100%;
-    margin-left: 5px;
-    font-size: 15px
+        flex: 1;
+        background-color: transparent;
+        border: none;
+        width: 100%;
+        margin-left: 5px;
+        font-size: 15px
     }
 
     input:focus {
-    outline: none;
+        outline: none;
     }
 `
 export const IconButton = styled.div`

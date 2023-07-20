@@ -36,10 +36,7 @@ export default LandingPage
 const Wrapper = styled.div`
   background-color: #D9534F;
   background-size: cover;
-
   background-repeat: no-repeat;
-  width: 100vw;
-  height: 100vh;
   overflow: hidden;
 `
 

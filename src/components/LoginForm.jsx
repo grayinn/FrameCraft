@@ -100,11 +100,14 @@ const commonRememberForgot = `
 
 // 1
 const Wrapper = styled(Form)`
-    width: 40%;
+    width: 38%;
     padding: 60px 50px 30px 50px;
     border-radius: 20px;
     box-shadow: 0px 0px 5px 2px rgba(58, 58, 58, 0.20);
     font-family: Noto Sans;
+
+    background-color: white;
+    margin: 2.5% 55%;
 `
 
 const StyledTitle = styled.form`

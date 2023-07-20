@@ -9,15 +9,18 @@ import {
   Wrapper, 
   LogoWrapper, 
   SearchBarWapper, 
-  IconButton } from '../styleCommon/Header'
+  IconButton,
+  Container,
+  SearchWrapper } from '../styleCommon/Header'
 
   
 function Navbar() {
   return (
     <Wrapper>
+      <Container>
       <LogoWrapper>
         <Link to='./framecraft'>
-          <img src={navbarlogo} alt="" style={{ width: '240px' }} />
+          <img src={navbarlogo} alt="" style={{ width: '92%' }} />
         </Link>
       </LogoWrapper>
 
@@ -43,11 +46,11 @@ function Navbar() {
           <Link to='/signup'>Sign Up</Link>
         </SignupButton>
       </AuthButton>
+      </Container>
     </Wrapper>
   )
 }
 export default Navbar
-
 
 const AuthButton = styled.div`
     display: flex;
@@ -56,19 +59,19 @@ const AuthButton = styled.div`
       flex-shrink: 1;
     }
 `
-
-const LoginButton = styled.div`
-    font-family: Noto Sans;
+const CommonAuthButton = `
     font-size: 17px;
     font-weight: 600;
-    letter-spacing: 0.2px;
     width: 135px;
     height: 38px;
-    padding: 5px;
+    padding: 4px;
     border-radius: 20px;
     cursor: pointer;
     text-align: center;
+`
 
+const LoginButton = styled.div`
+    ${CommonAuthButton}
     background-color: #ffffff;
     border: 2px solid rgba(58, 58, 58, 0.70);
 
@@ -78,18 +81,10 @@ const LoginButton = styled.div`
     }
 `
 const SignupButton = styled.div`
-    font-family: Noto Sans;
-    font-size: 17px;
-    font-weight: 600;
-    width: 135px;
-    height: 38px;
-    padding: 5px;
-    border-radius: 20px;
-    cursor: pointer;
-    margin-left: 7px;
-    text-align: center;
+    ${CommonAuthButton}
     background-color: #D9534F;
-    border: 1.5px solid #D9534F;
+    border: 2px solid #D9534F;
+    margin-left: 12px;
 
     a {
       text-decoration: none;
@@ -97,5 +92,3 @@ const SignupButton = styled.div`
     }
 `
 
-const SearchWrapper = styled.div`
-`
