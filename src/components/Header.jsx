@@ -1,4 +1,5 @@
 import React from 'react'
+//import React, { useState } from 'react'
 import styled from "styled-components"
 import { Link } from 'react-router-dom'
 // import React, { useState } from 'react'
@@ -17,49 +18,66 @@ import {
   Container,
   SearchWrapper } from '../styleCommon/Header'
 
-const Header = () => {
+// props: {
+//   onSubmit: onSearchSubmit()
+// }
+
+// function Header(props) {
+//   const [input, setInput] = useState("")
+
+//   const onSearchSubmit = (e) => {
+//     e.preventDefault()
+//     props.onSubmit(input)
+//     // console.log("this is the input:", input)
+//   }
+
+function Header() {
+
+
   return (
     <Wrapper>
       <Container>
-      <LogoWrapper>
-        <Link to='./framecraft'>
-          <img src={navbarlogo} alt="" style={{ width: '240px' }} />
-        </Link>
-      </LogoWrapper>
-
-      <SearchWrapper>
-        <SearchBarWapper>
-          <form>
-            <input type="text" placeholder="Search..." />
-          </form>
-
-          <IconButton>
-            <SearchIcon />
-          </IconButton>
-
-        </SearchBarWapper>
-      </SearchWrapper>
-
-      <CreatePost>
-        <AddIconButton>
-            <AddIcon fontSize="small" />
-        </AddIconButton>
-
-        <AddIconText>
-          <Link to='./createpost'>
-            <p>Create Post</p>
+        <LogoWrapper>
+          <Link to='./framecraft'>
+            <img src={navbarlogo} alt="" style={{ width: '240px' }} />
           </Link>
-        </AddIconText>
-      </CreatePost>
+        </LogoWrapper>
 
-      <IconsWrapper>
-        <NotifIcon>
-            <NotificationsIcon fontSize="medium" />
-        </NotifIcon>
-        <AvatarIcon>
-            <AccountCircleIcon fontSize="large" />
-        </AvatarIcon>
-      </IconsWrapper>
+        <SearchWrapper>
+          <SearchBarWapper>
+            <form>
+              {/* <input type="text" placeholder="Search..." onChange={(e) => setInput(e.target.value)} /> */}
+              <input type="text" placeholder="Search..." />
+
+            </form>
+
+            <IconButton>
+              <SearchIcon />
+            </IconButton>
+
+          </SearchBarWapper>
+        </SearchWrapper>
+
+        <CreatePost>
+          <AddIconButton>
+              <AddIcon fontSize="small" />
+          </AddIconButton>
+
+          <AddIconText>
+            <Link to='./createpost'>
+              <p>Create Post</p>
+            </Link>
+          </AddIconText>
+        </CreatePost>
+
+        <IconsWrapper>
+          <NotifIcon>
+              <NotificationsIcon fontSize="medium" />
+          </NotifIcon>
+          <AvatarIcon>
+              <AccountCircleIcon fontSize="large" />
+          </AvatarIcon>
+        </IconsWrapper>
       </Container>
     </Wrapper>
   )

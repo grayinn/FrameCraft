@@ -1,36 +1,24 @@
 import React from 'react'
-import { styled } from 'styled-components'
-import Pin1 from '../assets/image/Pin1.png'
+import styled from 'styled-components'
 
-function Pin() {
+function Pin({ imageUrl }) {
+
   return (
-    <Wrapper>
-        <Container>
-            <img src={Pin1} alt="" style={{ width: '240px' }} />
-        </Container>
-    </Wrapper>
+    <PinWrapper >
+      <img src={imageUrl} alt="Unsplash" />
+    </PinWrapper>
   )
 }
 
-export default Pin
+export default Pin;
 
-const Wrapper = styled.div`
-    display: inline-flex;
-    padding: 8px;
-`
 
-const Container = styled.div`
-    display: flex;
-    align-items: center;
-    box-sizing: border-box;
+const PinWrapper = styled.div`
+  img {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
     cursor: pointer;
-    width: 297px;
-
-    img {
-        display: flex;
-        width: 100%;
-        cursor: zoom-in;
-        border-radius: 20px;
-        object-fit: cover;
-    }
+    margin-bottom: 15px;
+  }
 `

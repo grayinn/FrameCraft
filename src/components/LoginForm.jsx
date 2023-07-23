@@ -61,7 +61,9 @@ function LoginForm({ onLogin }) {
 
             <StyledButton variant="primary" type="submit">
                 <TextButton>
-                    <p>Log in</p>
+                    <Link to='/mainpage'>
+                        <p>Log in</p>
+                    </Link>
                 </TextButton>
                 <TextButton2>
                     <h6>OR</h6>
@@ -105,8 +107,8 @@ const Wrapper = styled(Form)`
     border-radius: 20px;
     box-shadow: 0px 0px 5px 2px rgba(58, 58, 58, 0.20);
     font-family: Noto Sans;
-
     background-color: white;
+    
     margin: 2.5% 55%;
 `
 
@@ -171,6 +173,11 @@ const TextButton = styled.div`
 
     &:hover {
         background-color: #EC5E5A;
+    }
+
+    a {
+        text-decoration: none;
+        color: white;
     }
 `
 

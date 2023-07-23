@@ -3,15 +3,15 @@ import Navbar from '../components/Navbar'
 import styled from "styled-components"
 import BackgrImage from '../assets/image/Landingpage.svg'
 
-// import HomeIMG3 from '../assets/image/ldp-image3.png'
-// import HomeIMG4 from '../assets/image/ldp-image4.png'
-// import HomeIMG5 from '../assets/image/ldp-image5.png'
-// import HomeIMG6 from '../assets/image/ldp-image6.png'
-// import HomeIMG7 from '../assets/image/ldp-image7.png'
-// import HomeIMG8 from '../assets/image/ldp-image8.png'
-// import HomeIMG9 from '../assets/image/ldp-image9.png'
-// import HomeIMG10 from '../assets/image/ldp-image10.png'
-// import HomeIMG11 from '../assets/image/ldp-image11.png'
+import HomeIMG3 from '../assets/image/ldp-image3.png'
+import HomeIMG4 from '../assets/image/ldp-image4.png'
+import HomeIMG5 from '../assets/image/ldp-image5.png'
+import HomeIMG6 from '../assets/image/ldp-image6.png'
+import HomeIMG7 from '../assets/image/ldp-image7.png'
+import HomeIMG8 from '../assets/image/ldp-image8.png'
+//import HomeIMG9 from '../assets/image/ldp-image9.png'
+import HomeIMG10 from '../assets/image/home-img11.svg'
+import HomeIMG11 from '../assets/image/home-img10.svg'
 
 import HomeIMG1 from '../assets/image/home-img1.svg'
 import HomeIMG2 from '../assets/image/home-img2.svg'
@@ -45,27 +45,23 @@ function Home () {
           </ImageLeft>
         </LeftSide>
 
-        {/* <RightSide>
+        <RightSide> 
           <ImageRight>
-            <div className='Column1'>
+            <div className='box1'>
               <div className='box'><img className='img3' src={HomeIMG3} alt="" /></div>
               <div className='box'><img className='img4' src={HomeIMG4} alt="" /></div>
               <div className='box'><img className='img5' src={HomeIMG5} alt="" /></div>
             </div>
 
-            <div className='Column2'>
               <div className='box'><img className='img6' src={HomeIMG6} alt="" /></div>
               <div className='box'><img className='img7' src={HomeIMG7} alt="" /></div>
               <div className='box'><img className='img8' src={HomeIMG8} alt="" /></div>
-            </div>
 
-            <div className='Column3'>
-              <div className='box'><img className='img9' src={HomeIMG9} alt="" /></div>
+              {/* <div className='box'><img className='img9' src={HomeIMG9} alt="" /></div> */}
               <div className='box'><img className='img10' src={HomeIMG10} alt="" /></div>
               <div className='box'><img className='img11' src={HomeIMG11} alt="" /></div>
-            </div>
           </ImageRight>
-        </RightSide> */}
+        </RightSide>
 
       </Container>
     </Wrapper>
@@ -86,6 +82,7 @@ const Wrapper = styled.div`
 `
 
 const Container = styled.div`
+  display: flex;
 `
 
 const BackgroundIMG = styled.div`
@@ -99,6 +96,7 @@ const BackgroundIMG = styled.div`
 `
 
 const LeftSide = styled.div`
+  width: 80%;
 `
 
 const ContentWrapper = styled.div`
@@ -107,10 +105,9 @@ const ContentWrapper = styled.div`
 `
 
 const CommonContent = `
-  width: 60%;
-
-  padding-top: 3%;
-  padding-left: 6%;
+  width: 100%;
+  padding-top: 7%;
+  padding-left: 11%;
   color: #FFF;
   font-family: Fugaz One;
   h1 {
@@ -133,22 +130,60 @@ const Content2 = styled.div`
 `
 
 const Content3 = styled.div`
-  width: 50%;
+  width: 90%;
   color: #FFF;
-  font-size: 22px;
-  padding-left: 6%;
+  font-size: 22.5px;
+  padding-left: 11%;
   opacity: 0.8999999761581421;
+  margin-bottom: 27px;
 `
 
 const ImageLeft = styled.div`
   .img1 {
-    width: 18%;
-    margin-left: 14%;
-    margin-right: 1%;
+    width: 29%;
+    margin-left: 39.5%;
+    margin-right: 10px;
   }
 
   .img2 {
-    width: 18%;
+    width: 29%;
+  }
+`
+
+// = body
+const RightSide = styled.div`
+  width: 69%;
+`
+
+// = container
+const ImageRight = styled.div`
+  // width: 100%;
+  // height: 700px;
+  //margin-top: 6%;
+  columns: 3;
+  column-gap: 10px;
+  margin-right: 1%;
+
+  .box1 {
+    margin-top: 52%;
+  }
+
+  .box {
+    width: 100%;
+    margin-bottom: 10px;
+    break-inside: avoid;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  .img6 {
+    margin-top: 20%;
+  }
+
+  .img10 {
+    margin-top: 35%;
   }
 `
 

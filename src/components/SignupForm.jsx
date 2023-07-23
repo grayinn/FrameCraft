@@ -84,15 +84,21 @@ const SignUpForm = ({ onSignUp }) => {
 
 
             <StyledButton variant="primary" type="submit">
-                <p>Sign Up</p>
-                <h6>OR</h6>
+                <TextButton>
+                    <Link to='/mainpage'>
+                        <p>Sign Up</p>
+                    </Link>
+                </TextButton>
+                <TextButton2>
+                    <h6>OR</h6>
+                </TextButton2>
             </StyledButton>
 
             <AuthLogin />
 
             <StyledConnect>
                 <p>Already have an account?</p>
-                <SignInLink to='/signup'>Log in now!</SignInLink>
+                <SignInLink to='/login'>Log in now!</SignInLink>
             </StyledConnect>
 
         </Wrapper>
@@ -108,13 +114,13 @@ const Wrapper = styled.form`
     border-radius: 20px;
     box-shadow: 0px 0px 5px 2px rgba(58, 58, 58, 0.20);
     font-family: Noto Sans;
-
     background-color: white;
-    margin: 2.5% 55%;
+
+    margin: 2% 55%;
 `
 
 const StyledTitle = styled.div`
-    height: 78px;
+    height: 75px;
     margin-bottom: 10px;
 `
 
@@ -155,30 +161,32 @@ const StyledButton = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+`
 
-    p {
-        flex-shrink: 0;
+const TextButton = styled.div`
+    border-radius: 20px;
+    background: #D9534F;
+    color: white;
+    font-size: 17px;
+    font-weight: 600;
+    width: 50%;
+    height: 40px;
+    padding: 5px;
+    text-align: center;
 
-        border-radius: 20px;
-        background: #D9534F;
-
-        font-size: 17px;
-        font-weight: 600;
-        width: 50%;
-        height: 40px;
-        padding: 5px;
-
-        cursor: pointer;
-        text-align: center;
-        background-color: #D9534F;
-        border: 1.5px solid #D9534F;
-        text-decoration: none;
-        color: white;
-    } 
-
-    &:hover p {
+    &:hover {
         background-color: #EC5E5A;
     }
+
+    a {
+        text-decoration: none;
+        color: white;
+    }
+`
+
+const TextButton2 = styled.div`
+    margin-top: 20px;
+    margin-bottom: 10px;
 `
 
 const StyledConnect = styled.div`
