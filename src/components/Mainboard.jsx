@@ -3,16 +3,6 @@ import styled from 'styled-components'
 import Pin from './Pin'
 import unsplash from '../api/unsplash'
 
-const MainboardWrapper = styled.div`
-  // margin-right: 3.5%;
-  // margin-left: 3.5%;
-  margin: 1% 3.5% 3.5% 3.5%;
-  columns: 5 250px;
-  // display: grid;
-  // grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  column-gap: 15px;
-`
-
 function Mainboard() {
   const [images, setImages] = useState([]);
 
@@ -46,3 +36,9 @@ function Mainboard() {
 }
 
 export default Mainboard
+
+const MainboardWrapper = styled.div`
+  margin: 1% 3.5% 3.5% 3.5%;
+  columns: 5 250px;
+  column-gap: 15px;
+`

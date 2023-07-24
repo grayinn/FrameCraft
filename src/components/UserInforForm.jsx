@@ -1,118 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-import ButtonCS from './ButtonCS'
+//import ButtonCS from './ButtonCS'
 
 import UserInfAVT from '../assets/image/UserInfAVT.svg'
 
-const Container = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 35%;
-    margin: 0 auto;
 
-    border-radius: 20px;
-    background: #FFF;
-    box-shadow: 0px 0px 12px 2px rgba(0, 0, 0, 0.2);
-
-    margin-bottom: 50px;
-    padding: 20px 30px 25px 30px;
-    font-family: Noto Sans;
-
-`
-
-const UserInforLabel = styled.div`
-    width: 100%;
-`
-
-const Title = styled.div`
-    margin-bottom: 15px;
-    color: #000;
-    text-align: center;
-    font-family: Noto Sans;
-    font-size: 20px;
-    font-weight: 600;
-    line-height: normal;
-`
-
-const HorizontalLine = styled.div`
-    border-top: 2px solid #D9D9D9;
-    margin-bottom: 15px;
-`
-
-const AvatarContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-`
-
-const AvatarImage = styled.img`
-    width: 75%;
-    border-radius: 50%;
-`
-
-const ChangeAvatarLink = styled(Link)`
-    margin-top: 10px;
-    margin-bottom: 20px;
-    color: rgba(58, 58, 58, 0.80);
-    font-family: Noto Sans;
-    font-size: 15px;
-    font-style: normal;
-    font-weight: 500;
-    text-decoration-line: underline;
-`
-
-const FormContainer = styled.div`
-    width: 100%;
-    
-    input {
-        border-radius: 0px;
-        margin-bottom: 5px;
-        border: none;
-        border-bottom: 1px solid #C7C7C7;
-
-        font-family: Noto Sans;
-        font-size: 15px;
-        font-weight: 300;
-        line-height: normal;
-
-        &:focus {
-            outline: none;
-            box-shadow: none;
-            border-bottom: 1px solid gray;
-        }
-    }
-
-    .form-label-sm {
-        color: #3A3A3A;
-        font-size: 16px;
-        font-weight: 500;
-    }
-`
-const GenderSelect = styled.select`
-    padding-left: 10px;
-    border: none; 
-    border-bottom: 1px solid #c7c7c7;
-    border-radius: 0;
-    height: 40px;
-    width: 100%;
-
-    font-size: 15px;
-    font-weight: 300;
-    line-height: normal;
-
-    &:focus {
-        outline: none;
-        box-shadow: none;
-        border-bottom: 1px solid gray;
-    }
-`
-
-const UserInforForm = () => {
+const UserInforForm = ({onClose}) => {
     const handleFormSubmit = (e) => {
         e.preventDefault();
-        // Xử lý lưu thông tin user
     }
 
     return (
@@ -215,7 +111,16 @@ const UserInforForm = () => {
                         </div>
                     </div>
 
-                    <ButtonCS />
+                    {/* <ButtonCS /> */}
+                    <ButtonContainer>
+                        <Link to='/mainpage'>
+                            <button onClick={onClose} className="cancel">Cancel</button>
+                        </Link>
+
+                        <Link to='/mainpage'>
+                            <button onClick={onClose}>Save</button>
+                        </Link>
+                    </ButtonContainer>
 
                 </form>
             </FormContainer>
@@ -224,3 +129,137 @@ const UserInforForm = () => {
 }
 
 export default UserInforForm
+
+const Container = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 35%;
+    margin: 0 auto;
+
+    border-radius: 20px;
+    background: #FFF;
+    box-shadow: 0px 0px 12px 2px rgba(0, 0, 0, 0.2);
+
+    margin-bottom: 50px;
+    padding: 20px 30px 25px 30px;
+    font-family: Noto Sans;
+`
+
+const UserInforLabel = styled.div`
+    width: 100%;
+`
+
+const Title = styled.div`
+    margin-bottom: 15px;
+    color: #000;
+    text-align: center;
+    font-family: Noto Sans;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: normal;
+`
+
+const HorizontalLine = styled.div`
+    border-top: 2px solid #D9D9D9;
+    margin-bottom: 15px;
+`
+
+const AvatarContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+`
+
+const AvatarImage = styled.img`
+    width: 75%;
+    border-radius: 50%;
+`
+
+const ChangeAvatarLink = styled(Link)`
+    margin-top: 10px;
+    margin-bottom: 20px;
+    color: rgba(58, 58, 58, 0.80);
+    font-family: Noto Sans;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    text-decoration-line: underline;
+`
+
+const FormContainer = styled.div`
+    width: 100%;
+    
+    input {
+        border-radius: 0px;
+        margin-bottom: 5px;
+        border: none;
+        border-bottom: 1px solid #C7C7C7;
+
+        font-family: Noto Sans;
+        font-size: 15px;
+        font-weight: 300;
+        line-height: normal;
+
+        &:focus {
+            outline: none;
+            box-shadow: none;
+            border-bottom: 1px solid gray;
+        }
+    }
+
+    .form-label-sm {
+        color: #3A3A3A;
+        font-size: 16px;
+        font-weight: 500;
+    }
+`
+const GenderSelect = styled.select`
+    padding-left: 10px;
+    border: none; 
+    border-bottom: 1px solid #c7c7c7;
+    border-radius: 0;
+    height: 40px;
+    width: 100%;
+
+    font-size: 15px;
+    font-weight: 300;
+    line-height: normal;
+
+    &:focus {
+        outline: none;
+        box-shadow: none;
+        border-bottom: 1px solid gray;
+    }
+`
+
+const ButtonContainer = styled.div`
+    display: flex;
+    justify-content: flex-end;
+
+    button {
+        font-weight: 600;
+        border-radius: 20px;
+        margin-left: 10px;
+        background-color: #D9534F;
+        color: #fff;
+        width: 140px;
+        height: 40px;
+        border: #D9534F;
+
+        &:hover {
+            background-color: #EC5E5A; 
+        }
+    }
+
+    button.cancel {
+        background-color: white;
+        color: rgba(58, 58, 58, 0.80);
+        border: 2px solid rgba(58, 58, 58, 0.80);
+
+        &:hover {
+            background-color: #EBEBEB;
+        }
+    }
+`
+

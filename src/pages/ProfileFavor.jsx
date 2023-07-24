@@ -8,11 +8,11 @@ import unsplash from '../api/unsplash'
 import avatarprofile from '../assets/image/prf_avatar.svg'
 import FavoriteIcon from '@mui/icons-material/Favorite'
 import DashboardCustomizeIcon from '@mui/icons-material/DashboardCustomize'
-import AddCircleRoundedIcon from '@mui/icons-material/AddCircleRounded'
 
 import Header from '../components/Header'
 
-function ProfilePage() {
+function ProfileFavor() {
+
     const [images, setImages] = useState([]);
 
     const getImages = async (term) => {
@@ -31,7 +31,7 @@ function ProfilePage() {
     }
 
     React.useEffect(() => {
-        getImages('plant') 
+        getImages('minimalist') 
     }, [])
 
     return (
@@ -78,47 +78,32 @@ function ProfilePage() {
                         <Button1>
                             <IconWrapper>
                                 <DashboardCustomizeIcon className='icon1'/>
-                                <p>Created</p>
+                                <Link to='/profile'>
+                                    <p>Created</p>
+                                </Link>
                             </IconWrapper>
                         </Button1>
                         <Button2>
                             <IconWrapper>
                                 <FavoriteIcon className='icon2'/>
-                                <Link to='/profilefavorite'>
-                                    <p>Favorites</p>
-                                </Link>
+                                <p>Favorites</p>
                             </IconWrapper>
                         </Button2>
                     </ButtonGroup>
+
                 </ProfileInformation>
             </Container>
 
-            {/* <MainboardWrapper>
+            <MainboardWrapper>
                 {images.map((image) => (
                     <Pin key={image.id} imageUrl={image.urls.regular} />
                 ))}
-            </MainboardWrapper> */}
-
-            <MainboardWrapper>
-                {images.map((image, index) => (
-                <div key={image.id}>
-                    {index === 0 ? (
-                    <GrayBox>
-                        <AddCircleRoundedIcon fontSize="large" />
-                        <p>Create post</p>
-                    </GrayBox>
-                    ) : (
-                    <Pin imageUrl={image.urls.regular} />
-                    )}
-                </div>
-                ))}
             </MainboardWrapper>
-
         </Wrapper>
     )
 }
 
-export default ProfilePage
+export default ProfileFavor
 
 
 const Wrapper = styled.div`
@@ -159,11 +144,9 @@ const ButtonGroupCover = styled.div`
     font-size: 15px;
 
     .button {
-        //width: 150px;
         height: 35px;
         padding: 10px;
         border-radius: 20px;
-        //text-align: center;
         cursor: pointer;
         display: flex;
         align-items: center;
@@ -245,71 +228,71 @@ const Desc = styled.div`
 `
 
 const ButtonGroup = styled.div`
-  display: flex;
-  justify-content: center;
-  margin: 1.5% 3.5% 2% 3.5%;
+    display: flex;
+    justify-content: center;
+    margin: 1.5% 3.5% 2% 3.5%;
 `
 
 const Button1 = styled.div`
-  width: 10%;
-  padding: 7px;
-  border-radius: 20px 0px 0px 20px;
-  background-color: red;
-  align-items: center;
-  cursor: pointer;
+    width: 10%;
+    padding: 7px;
+    border-radius: 20px 0px 0px 20px;
+    cursor: pointer;
 
-  background-color: #D9534F;
-  color: #fff;
-  border: 1px solid #CF4C48;
+    background-color: white;
+    color: rgba(58, 58, 58, 0.80);
+    border: 1px solid rgba(58, 58, 58, 0.80);
 
-  p {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 0;
-  }
+    p {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 0;
+    }
 
-  &:hover {
-    background-color: #EC5E5A; 
-  }
+    &:hover {
+        background-color: #EBEBEB;
+    }
+
+    a {
+        text-decoration: none;
+        color: rgba(58, 58, 58, 0.80);
 `
 
 const IconWrapper = styled.div`
-  display: flex;
-  justify-content: center;
+    display: flex;
+    justify-content: center;
 
-  .icon1 {
-    margin-right: 8px;
-    padding: 2px;
-  }
+    .icon1 {
+        margin-right: 8px;
+        padding: 2px;
+    }
 
-  .icon2 {
-    margin-right: 8px;
-  }
+    .icon2 {
+        margin-right: 8px;
+    }
 `
 
 const Button2 = styled.div`
-  width: 10%;
-  padding: 7px;
-  border-radius: 0px 20px 20px 0px;
-  cursor: pointer;
+    width: 10%;
+    padding: 7px;
+    border-radius: 0px 20px 20px 0px;
+    background-color: red;
+    align-items: center;
+    cursor: pointer;
 
-  background-color: white;
-  color: rgba(58, 58, 58, 0.80);
-  border: 1px solid rgba(58, 58, 58, 0.80);
+    background-color: #D9534F;
+    color: #fff;
+    border: 1px solid #CF4C48;
 
-  p {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 0;
-  }
+    p {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 0;
+    }
 
-  &:hover {
-    background-color: #EBEBEB;
-  }
-
-  a {
-    text-decoration: none;
-    color: rgba(58, 58, 58, 0.80);
+    &:hover {
+        background-color: #EC5E5A; 
+    }
 }
 `
 
@@ -317,23 +300,5 @@ const MainboardWrapper = styled.div`
   margin: 1% 3.5% 3.5% 3.5%;
   columns: 5 250px;
   column-gap: 15px;
-`
-
-const GrayBox = styled.div`
-  height: 250px;
-  background-color: #D9D9D9;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border-radius: 20px;
-  margin-bottom: 15px;
-  color: #3A3A3A;
-  padding-top: 35px;
-  cursor: pointer;
-
-  p {
-    margin-top: 10px;
-  }
 `
 

@@ -3,6 +3,8 @@ import styled from "styled-components"
 
 import Header from '../components/Header'
 import Mainboard from '../components/Mainboard'
+import FavoriteIcon from '@mui/icons-material/Favorite'
+import PeopleIcon from '@mui/icons-material/People'
 
 function MainPage() {
 
@@ -17,10 +19,16 @@ function MainPage() {
         <HorizontalLine />
         <ButtonGroup>
           <Button1>
-            <p>For you</p>
+            <IconWrapper>
+              <FavoriteIcon className='icon1'/>
+              <p>For you</p>
+            </IconWrapper>
           </Button1>
           <Button2>
-            <p>Following</p>
+            <IconWrapper>
+              <PeopleIcon className='icon2'/>
+              <p>Following</p>
+            </IconWrapper>
           </Button2>
         </ButtonGroup>
 
@@ -41,12 +49,11 @@ function MainPage() {
 export default MainPage
 
 const Wrapper = styled.div`
-
 `
 
 const HorizontalLine = styled.div`
     width: 100%;
-    border-top: 1px solid #B6B6B6;
+    border-top: 1px solid #CBCBCB;
     margin-top: 5px;
     margin-bottom: 20px;
 `
@@ -54,7 +61,6 @@ const HorizontalLine = styled.div`
 const ButtonGroup = styled.div`
   display: flex;
   justify-content: center;
-  //background-color: yellow;
 
   margin-right: 3.5%;
   margin-left: 3.5%;
@@ -83,11 +89,24 @@ const Button1 = styled.div`
   }
 `
 
+const IconWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+
+  .icon1 {
+    margin-right: 8px;
+    padding: 2px;
+  }
+
+  .icon2 {
+    margin-right: 8px;
+  }
+`
+
 const Button2 = styled.div`
   width: 10%;
   padding: 7px;
   border-radius: 0px 20px 20px 0px;
-  //background-color: green;
   cursor: pointer;
 
   background-color: white;
@@ -110,12 +129,7 @@ const KeywordsWrapper = styled.div`
   justify-content: center;
   align-items: center;
   margin-top: 10px;
-
-  margin-right: 3.5%;
-  margin-left: 3.5%;
-
-  margin-top: 1%;
-  margin-bottom: 1%;
+  margin: 1% 3.5% 1% 3.5%;
 `
 
 const KeywordItem = styled.div`

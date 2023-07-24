@@ -18,7 +18,7 @@ export const Container = styled.div`
 export const LogoWrapper = styled.div`
     cursor: pointer;
     margin-top: 10px;
-    margin-right: 10%;
+    margin-right: 11%;
 `
 
 export const SearchWrapper = styled.div`

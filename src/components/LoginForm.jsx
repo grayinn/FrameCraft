@@ -100,7 +100,6 @@ const commonRememberForgot = `
     font-weight: 400;
 `
 
-// 1
 const Wrapper = styled(Form)`
     width: 38%;
     padding: 60px 50px 30px 50px;
