@@ -1,8 +1,7 @@
-import React from 'react'
-//import React, { useState } from 'react'
 import styled from "styled-components"
+import React, { useState } from "react"
 import { Link } from 'react-router-dom'
-// import React, { useState } from 'react'
+
 import SearchIcon from '@mui/icons-material/Search'
 import AddIcon from '@mui/icons-material/Add'
 import NotificationsIcon from '@mui/icons-material/Notifications'
@@ -11,35 +10,28 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle'
 import navbarlogo from '../assets/image/logo.svg'
 import Avatar from '../assets/image/headeravt.svg'
 
-import { 
-  Wrapper, 
-  LogoWrapper, 
-  SearchBarWapper, 
-  IconButton,
-  Container,
-  SearchWrapper } from '../styleCommon/Header'
+import ChangePasswordModal from "./Popup/P_ChangePass"
+import ChangeInformationModal from "./Popup/P_ChangeInfor"
 
-// props: {
-//   onSubmit: onSearchSubmit()
-// }
+import { Wrapper, LogoWrapper, SearchBarWapper, IconButton, Container, SearchWrapper } from '../styleCommon/Header'
 
-// function Header(props) {
-//   const [input, setInput] = useState("")
-
-//   const onSearchSubmit = (e) => {
-//     e.preventDefault()
-//     props.onSubmit(input)
-//     // console.log("this is the input:", input)
-//   }
 
 function Header() {
+  const [passwordModal, setPasswordModal] = useState(false)
+  const [infoModal, setInfoModal] = useState(false)
 
+  const togglePasswordModal = () => {
+    setPasswordModal(!passwordModal)
+  }
+  const toggleInfoModal = () => {
+    setInfoModal(!infoModal);
+  }
 
   return (
     <Wrapper>
       <Container>
         <LogoWrapper>
-          <Link to='/'>
+          <Link to='/mainpage'>
             <img src={navbarlogo} alt="" style={{ width: '240px' }} />
           </Link>
         </LogoWrapper>
@@ -47,15 +39,11 @@ function Header() {
         <SearchWrapper>
           <SearchBarWapper>
             <form>
-              {/* <input type="text" placeholder="Search..." onChange={(e) => setInput(e.target.value)} /> */}
               <input type="text" placeholder="Search..." />
-
             </form>
-
             <IconButton>
               <SearchIcon />
             </IconButton>
-
           </SearchBarWapper>
         </SearchWrapper>
 
@@ -63,7 +51,6 @@ function Header() {
           <AddIconButton>
               <AddIcon fontSize="small" />
           </AddIconButton>
-
           <AddIconText>
             <Link to='/createpost'>
               <p>Create Post</p>
@@ -72,9 +59,12 @@ function Header() {
         </CreatePost>
 
         <IconsWrapper>
+{/* 0. View notification */}
           <NotifIcon>
               <NotificationsIcon fontSize="medium" />
           </NotifIcon>
+
+{/* --- */}
           <AvatarIcon>
               <AccountCircleIcon fontSize="large" />
               <Tooltip>
@@ -90,10 +80,25 @@ function Header() {
                       </div>
                 </UserInfo>
                 <HorizontalLine />
-                <TooltipItem>Account Information</TooltipItem>
-                <TooltipItem>Change Password</TooltipItem>
+
+{/* 1. Popup Account Information */}
+                <ChangeButton onClick={toggleInfoModal}>
+                  Account Information
+                </ChangeButton>
+                <ChangeInformationModal showModal={infoModal} closeModal={toggleInfoModal} />
+
+{/* 2. Popup Changepassword */}
+                <ChangeButton onClick={togglePasswordModal}>
+                  Change Password
+                </ChangeButton>
+                <ChangePasswordModal showModal={passwordModal} closeModal={togglePasswordModal} />
                 <HorizontalLine />
-                <TooltipItem>Log Out</TooltipItem>
+
+{/* 3. Log out */}
+                <Link to='/'>
+                  <TooltipItem>Log Out</TooltipItem>
+                </Link>
+
             </Tooltip>
           </AvatarIcon>
         </IconsWrapper>
@@ -101,7 +106,6 @@ function Header() {
     </Wrapper>
   )
 }
-
 export default Header
 
 
@@ -156,7 +160,7 @@ const Tooltip = styled.div`
     position: absolute;
     top: 100%;
     right: 0;
-    width: 290px;
+    width: 300px;
     background-color: #fff;
     border-radius: 20px;
     box-shadow: 0px 2px 7px 0px rgba(0, 0, 0, 0.2);
@@ -166,6 +170,7 @@ const Tooltip = styled.div`
     z-index: 999;
     transition: opacity 0.2s;
     margin-top: 6px;
+    padding-left: 10px;
 
     ${AvatarIcon}:hover & {
       display: block;
@@ -179,6 +184,10 @@ const Tooltip = styled.div`
       border: 5px solid transparent;
       border-bottom-color: #fff;
     }
+
+    a {
+      text-decoration: none;
+    }
 `
 
 const UserInfo = styled.div`
@@ -188,12 +197,11 @@ const UserInfo = styled.div`
     cursor: pointer;
     padding: 10px;
 
-    //background-color: red;
-
     img {
         width: 40px;
         border-radius: 50%;
         margin-right: 10px;
+        margin-left: 10px;
     }
 
     .user-info-text {
@@ -230,6 +238,21 @@ const TooltipItem = styled.div`
     color: #3a3a3a;
     transition: background-color 0.2s;
     border-radius: 20px;
+    color: #3A3A3A;
+    font-size: 15px;
+
+    &:hover {
+      background-color: #f1f1f1;
+      border-radius: 20px;
+    }
+`
+
+//-------- POP UP -----------
+const ChangeButton = styled.div`
+    padding: 8px 22px;
+    color: #3a3a3a;
+    transition: background-color 0.2s;
+    border-radius: 20px;
 
     color: #3A3A3A;
     font-size: 15px;
@@ -238,5 +261,4 @@ const TooltipItem = styled.div`
       background-color: #f1f1f1;
       border-radius: 20px;
     }
-
 `

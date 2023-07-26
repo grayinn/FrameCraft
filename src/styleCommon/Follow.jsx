@@ -3,16 +3,10 @@ import styled from 'styled-components'
 export const FollowingContainer = styled.div`
     display: flex;
     flex-direction: column;
-    font-family: Noto Sans;
-
-    padding: 20px 30px 20px 30px;
-    width: 29%;
+    padding: 20px 45px 20px 45px;
+    width: 100%;
     border-radius: 20px;
     box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.15);
-
-    margin-bottom: 50px;      // cách tạm
-    margin-left: 50px;        // tạm
-    margin-right: 50px;       // tạm
 `
 
 export const Title = styled.div`

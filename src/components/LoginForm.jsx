@@ -22,7 +22,7 @@ function LoginForm({ onLogin }) {
     }
 
     return (
-        <Wrapper onSubmit={handleSubmit}>
+        <Wrapper onSubmit={handleSubmit}> 
             <StyledTitle>
                 <h1>Log in</h1>
             </StyledTitle>

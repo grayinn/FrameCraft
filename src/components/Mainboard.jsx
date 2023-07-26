@@ -14,8 +14,8 @@ function Mainboard() {
           per_page: 20,
         },
       })
-      setImages(response.data.results)
 
+      setImages(response.data.results)
     } catch (error) {
       console.error(error);
     }
@@ -23,17 +23,23 @@ function Mainboard() {
 
   // getImages: lấy hình ảnh từ API
   React.useEffect(() => {
-    getImages('cat') 
+    getImages('raining') 
   }, [])
 
   return (
     <MainboardWrapper>
       {images.map((image) => (
-        <Pin key={image.id} imageUrl={image.urls.regular} />
+        <Pin 
+          key={image.id} 
+          imageUrl={image.urls.regular} 
+          title={image.description} 
+          likes={image.likes} 
+          />
       ))}
     </MainboardWrapper>
   )
 }
+
 
 export default Mainboard
 

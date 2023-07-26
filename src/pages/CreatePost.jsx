@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import AddCircleRoundedIcon from '@mui/icons-material/AddCircleRounded'
 import { Link } from 'react-router-dom'
 import Avatar from '../assets/image/headeravt.svg'
-//import ButtonCS from '../components/ButtonCS'
+import { ButtonContainer } from '../styleCommon/Button'
 import Header from '../components/Header'
 
 
@@ -38,7 +38,6 @@ const CreatePost = () => {
                         <input type="text" placeholder="Enter your description" />
                     </InputContainer2>
 
-                    {/* <ButtonCS /> */}
                     <ButtonContainer>
                         <Link to='/mainpage'>
                             <button className="cancel">Cancel</button>
@@ -184,35 +183,5 @@ const InputContainer2 = styled.div`
         padding: 9px;
         font-size: 15px;
         font-weight: 300;
-    }
-`
-
-const ButtonContainer = styled.div`
-    display: flex;
-    justify-content: flex-end;
-
-    button {
-        font-weight: 600;
-        border-radius: 20px;
-        margin-left: 10px;
-        background-color: #D9534F;
-        color: #fff;
-        width: 140px;
-        height: 40px;
-        border: #D9534F;
-
-        &:hover {
-            background-color: #EC5E5A; 
-        }
-    }
-
-    button.cancel {
-        background-color: white;
-        color: rgba(58, 58, 58, 0.80);
-        border: 2px solid rgba(58, 58, 58, 0.80);
-
-        &:hover {
-            background-color: #EBEBEB;
-        }
     }
 `

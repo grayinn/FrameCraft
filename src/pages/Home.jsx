@@ -157,9 +157,6 @@ const RightSide = styled.div`
 
 // = container
 const ImageRight = styled.div`
-  // width: 100%;
-  // height: 700px;
-  //margin-top: 6%;
   columns: 3;
   column-gap: 10px;
   margin-right: 1%;

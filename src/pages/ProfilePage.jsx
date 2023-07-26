@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styled from "styled-components"
 import { Link } from 'react-router-dom'
 
-import Pin from '../components/Pin'
+import PinCreated from '../components/PinCreated'
 import unsplash from '../api/unsplash'
 
 import avatarprofile from '../assets/image/prf_avatar.svg'
@@ -11,9 +11,25 @@ import DashboardCustomizeIcon from '@mui/icons-material/DashboardCustomize'
 import AddCircleRoundedIcon from '@mui/icons-material/AddCircleRounded'
 
 import Header from '../components/Header'
+import FollowersModal from '../components/Popup/P_Follower'
+import FollowingModal from '../components/Popup/P_Following'
+
+import { Wrapper, Container, HorizontalLine, CoverContainer, ButtonGroupCover, Avatar,
+         ProfileInformation, ProfileDetails, Name, Quantity, Desc,
+         ButtonGroup, IconWrapper, MainboardWrapper, FollowButton } from '../styleCommon/Profile'
 
 function ProfilePage() {
     const [images, setImages] = useState([]);
+    const [followerModal, setFollowerModal] = useState(false)
+    const [followingModal, setFollowingModal] = useState(false)
+
+    const toggleFollowerModal = () => {
+        setFollowerModal(!followerModal)
+    }
+
+    const toggleFollowingModal = () => {
+        setFollowingModal(!followingModal)
+    }
 
     const getImages = async (term) => {
         try {
@@ -59,15 +75,21 @@ function ProfilePage() {
                             <p>@grayinn</p>
                         </Name>
                         <Quantity>
-                            <div className='post'>
-                                <p><span className="bold-text">23 </span>Posts</p>
-                            </div>
-                            <div className='followers'>
-                                <p><span className="bold-text">118 </span>Followers</p>
-                            </div>
-                            <div className='following'>
-                                <p><span className="bold-text">78 </span>Following</p>
-                            </div>
+                            <FollowButton>
+                                <span className="bold-text">23 </span>Posts
+                            </FollowButton>
+
+
+                            <FollowButton onClick={toggleFollowerModal}>
+                                <span className="bold-text">118 </span>Followers
+                            </FollowButton>
+                            <FollowersModal showModal={followerModal} closeModal={toggleFollowerModal} />
+
+
+                            <FollowButton onClick={toggleFollowingModal}>
+                                <span className="bold-text">78 </span>Following
+                            </FollowButton>
+                            <FollowingModal showModal={followingModal} closeModal={toggleFollowingModal} />
                         </Quantity>
                         <Desc>
                             <p>"Create your own sunshine and spread positivity wherever you go."</p>
@@ -93,12 +115,6 @@ function ProfilePage() {
                 </ProfileInformation>
             </Container>
 
-            {/* <MainboardWrapper>
-                {images.map((image) => (
-                    <Pin key={image.id} imageUrl={image.urls.regular} />
-                ))}
-            </MainboardWrapper> */}
-
             <MainboardWrapper>
                 {images.map((image, index) => (
                 <div key={image.id}>
@@ -108,7 +124,7 @@ function ProfilePage() {
                         <p>Create post</p>
                     </GrayBox>
                     ) : (
-                    <Pin imageUrl={image.urls.regular} />
+                    <PinCreated imageUrl={image.urls.regular} />
                     )}
                 </div>
                 ))}
@@ -117,223 +133,72 @@ function ProfilePage() {
         </Wrapper>
     )
 }
-
 export default ProfilePage
 
 
-const Wrapper = styled.div`
-    justify-content: center;
+const Button1 = styled.div`
+    width: 10%;
+    padding: 7px;
+    border-radius: 20px 0px 0px 20px;
+    background-color: red;
     align-items: center;
-    min-height: 100vh;
-`
+    cursor: pointer;
 
-const Container = styled.div`
-`
+    background-color: #D9534F;
+    color: #fff;
+    border: 1px solid #CF4C48;
 
-const HorizontalLine = styled.div`
-    width: 100%;
-    border-top: 1px solid #CBCBCB;
-    margin-top: 5px;
-`
-
-const CoverContainer = styled.div`
-    width: 100%;
-    height: 120px;
-    background-color: #EBA29A;
-    position: relative;
-
-    &:hover .button-group {
+    p {
         display: flex;
+        justify-content: center;
+        margin-bottom: 0;
     }
 
     &:hover {
-        background-color: #E19991;
-      }
-`
-
-const ButtonGroupCover = styled.div`
-    display: none;
-    position: absolute;
-    bottom: 10px;
-    right: 3.5%;
-    font-size: 15px;
-
-    .button {
-        //width: 150px;
-        height: 35px;
-        padding: 10px;
-        border-radius: 20px;
-        //text-align: center;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
+        background-color: #EC5E5A; 
     }
-
-    .remove {
-        background-color: none;
-        color: #C83B36;
-        margin-right: 10px;
-        border: 1.5px solid #C83B36;
-    }
-
-    .upload {
-        background-color: none;
-        color: rgba(58, 58, 58, 0.80);
-        border: 1px solid rgba(58, 58, 58, 0.80);
-    }
-
-    .button:hover {
-        background-color: #FFE4DE;
-    }
-`
-
-const Avatar = styled.div` 
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, -50%);
-
-    img {
-        width: 65%;
-        margin: auto;
-        display: block;
-    }
-`
-
-const ProfileInformation = styled.div`
-    text-align: center;
-    margin-top: 4.8%;
-`
-
-const ProfileDetails = styled.div`
-`
-
-const Name = styled.div`
-    h1 {
-        color: #000;
-        font-size: 28px;
-        margin-bottom: 3px;
-    }
-
-    p {
-        color: #727272;
-        font-size: 15px;
-        margin-bottom: 6px;
-    }
-`
-
-const Quantity = styled.div`
-    display: flex;
-    justify-content: center;
-    font-size: 15px;
-    cursor: pointer;
-
-    p {
-        margin-left: 11px;
-        margin-bottom: 5px;
-    }
-
-    .bold-text {
-        font-weight: bold;
-    }
-`
-
-const Desc = styled.div`
-    p {
-        color: #727272;
-        font-size: 15px;
-    }
-`
-
-const ButtonGroup = styled.div`
-  display: flex;
-  justify-content: center;
-  margin: 1.5% 3.5% 2% 3.5%;
-`
-
-const Button1 = styled.div`
-  width: 10%;
-  padding: 7px;
-  border-radius: 20px 0px 0px 20px;
-  background-color: red;
-  align-items: center;
-  cursor: pointer;
-
-  background-color: #D9534F;
-  color: #fff;
-  border: 1px solid #CF4C48;
-
-  p {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 0;
-  }
-
-  &:hover {
-    background-color: #EC5E5A; 
-  }
-`
-
-const IconWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-
-  .icon1 {
-    margin-right: 8px;
-    padding: 2px;
-  }
-
-  .icon2 {
-    margin-right: 8px;
-  }
 `
 
 const Button2 = styled.div`
-  width: 10%;
-  padding: 7px;
-  border-radius: 0px 20px 20px 0px;
-  cursor: pointer;
+    width: 10%;
+    padding: 7px;
+    border-radius: 0px 20px 20px 0px;
+    cursor: pointer;
 
-  background-color: white;
-  color: rgba(58, 58, 58, 0.80);
-  border: 1px solid rgba(58, 58, 58, 0.80);
-
-  p {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 0;
-  }
-
-  &:hover {
-    background-color: #EBEBEB;
-  }
-
-  a {
-    text-decoration: none;
+    background-color: white;
     color: rgba(58, 58, 58, 0.80);
+    border: 1px solid rgba(58, 58, 58, 0.80);
+
+    p {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 0;
+    }
+
+    &:hover {
+        background-color: #EBEBEB;
+    }
+
+    a {
+        text-decoration: none;
+        color: rgba(58, 58, 58, 0.80);
 }
 `
 
-const MainboardWrapper = styled.div`
-  margin: 1% 3.5% 3.5% 3.5%;
-  columns: 5 250px;
-  column-gap: 15px;
-`
-
 const GrayBox = styled.div`
-  height: 250px;
-  background-color: #D9D9D9;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border-radius: 20px;
-  margin-bottom: 15px;
-  color: #3A3A3A;
-  padding-top: 35px;
-  cursor: pointer;
+    height: 250px;
+    background-color: #D9D9D9;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    margin-bottom: 15px;
+    color: #3A3A3A;
+    padding-top: 35px;
+    cursor: pointer;
 
-  p {
-    margin-top: 10px;
-  }
+    p {
+        margin-top: 10px;
+    }
 `
-

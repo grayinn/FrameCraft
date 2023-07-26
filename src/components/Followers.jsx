@@ -1,14 +1,7 @@
 import React, { useState } from 'react'
 import Avatar from '../assets/image/headeravt.svg'
 import { Link } from 'react-router-dom'
-
-import { 
-    UserContainer, 
-    FollowButton2, 
-    FollowingContainer,
-    Title,
-    HorizontalLine } from '../styleCommon/Follow'
-
+import { UserContainer, FollowButton2, FollowingContainer, Title, HorizontalLine } from '../styleCommon/Follow'
 
 const UserCard = ({ avatar, name, username }) => {
     const [isFollowing, setIsFollowing] = useState(false)

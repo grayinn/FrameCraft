@@ -1,15 +1,7 @@
 import React, { useState } from 'react'
-//import styled from 'styled-components'
 import Avatar from '../assets/image/headeravt.svg'
 import { Link } from 'react-router-dom'
-
-import { 
-    UserContainer, 
-    FollowButton, 
-    FollowingContainer,
-    Title,
-    HorizontalLine } from '../styleCommon/Follow'
-
+import { UserContainer, FollowButton, FollowingContainer, Title, HorizontalLine } from '../styleCommon/Follow'
 
 const UserCard = ({ avatar, name, username }) => {
     const [isFollowing, setIsFollowing] = useState(false)
@@ -78,8 +70,6 @@ function Following() {
             username="jane.smith"
         />
         </FollowingContainer>
-
     )
 }
-
 export default Following

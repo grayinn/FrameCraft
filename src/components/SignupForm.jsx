@@ -46,7 +46,7 @@ const SignUpForm = ({ onSignUp }) => {
                     placeholder="Your user name"
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
-                    autoComplete="new-username"
+                    autoComplete="username"
                 />
 
                 <StyledInput
@@ -54,7 +54,7 @@ const SignUpForm = ({ onSignUp }) => {
                     placeholder="Your phone number"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
-                    autoComplete="new-phone"
+                    autoComplete="phone"
                 />
             </FormGroup>
 
@@ -104,7 +104,6 @@ const SignUpForm = ({ onSignUp }) => {
         </Wrapper>
     )
 }
-
 export default SignUpForm
 
 

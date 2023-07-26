@@ -4,22 +4,14 @@ import { Link } from 'react-router-dom'
 import navbarlogo from '../assets/image/logo.svg'
 import styled from "styled-components"
 import 'bootstrap/dist/css/bootstrap.min.css'
+import { Wrapper, LogoWrapper, SearchBarWapper, IconButton, Container, SearchWrapper } from '../styleCommon/Header'
 
-import { 
-  Wrapper, 
-  LogoWrapper, 
-  SearchBarWapper, 
-  IconButton,
-  Container,
-  SearchWrapper } from '../styleCommon/Header'
-
-  
 function Navbar() {
   return (
     <Wrapper>
       <Container>
       <LogoWrapper>
-        <Link to='./framecraft'>
+        <Link to='/'>
           <img src={navbarlogo} alt="" style={{ width: '92%' }} />
         </Link>
       </LogoWrapper>
@@ -54,7 +46,6 @@ export default Navbar
 
 const AuthButton = styled.div`
     display: flex;
-
     > * {
       flex-shrink: 1;
     }
@@ -91,4 +82,3 @@ const SignupButton = styled.div`
       color: white;
     }
 `
-
