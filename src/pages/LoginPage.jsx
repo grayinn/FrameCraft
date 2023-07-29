@@ -1,6 +1,6 @@
 import React from 'react'
 import LoginForm from '../components/LoginForm'
-import { Wrapper, BrandLogo, Text, BackgroundIMG, GradientOverlay, LoginFormWrapper } from '../styleCommon/AuthPage'
+import { Wrapper, BrandLogo, Text, BackgroundIMG, GradientOverlay, LoginFormWrapper } from '../styleCommon/Auth'
 
 import CoverAuth from '../assets/image/CoverAuth.png'
 

@@ -2,8 +2,7 @@ import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
-import Followers from './components/Followers.jsx'
-import ViewNoti from './components/ViewNoti.jsx'
+import ViewDetailPost from './pages/ViewDetailPost.jsx'
 
 import Home from './pages/Home.jsx'
 import LoginPage from './pages/LoginPage'
@@ -27,8 +26,7 @@ function App() {
         <Route path='/profilefavorite' element={<ProfileFavor />} />
       </Routes>
 
-      <ViewNoti />
-      <Followers />
+      <ViewDetailPost />
 
     </Router>
   )

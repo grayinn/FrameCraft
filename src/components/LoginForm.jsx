@@ -3,7 +3,7 @@ import { Form } from 'react-bootstrap'
 import { styled } from 'styled-components'
 import AuthLogin from './AuthLogin'
 import { Link } from 'react-router-dom'
-
+import { WrapperLogin, StyledButtonLogin, TextButton, TextButtonLogin, StyledConnectLogin, AuthLink } from '../styleCommon/Auth'
 
 function LoginForm({ onLogin }) {
     const [email, setEmail] = useState('')
@@ -22,7 +22,7 @@ function LoginForm({ onLogin }) {
     }
 
     return (
-        <Wrapper onSubmit={handleSubmit}> 
+        <WrapperLogin onSubmit={handleSubmit}> 
             <StyledTitle>
                 <h1>Log in</h1>
             </StyledTitle>
@@ -59,29 +59,34 @@ function LoginForm({ onLogin }) {
             </StyledAuth>
     
 
-            <StyledButton variant="primary" type="submit">
+            <StyledButtonLogin variant="primary" type="submit">
                 <TextButton>
                     <Link to='/mainpage'>
                         <p>Log in</p>
                     </Link>
                 </TextButton>
-                <TextButton2>
+                <TextButtonLogin>
                     <h6>OR</h6>
-                </TextButton2>
-            </StyledButton>
+                </TextButtonLogin>
+            </StyledButtonLogin>
 
             <AuthLogin />
 
-            <StyledConnect>
+            <StyledConnectLogin>
                 <p>Don't have an account?</p>
-                <SignInLink to='/signup'>Sign up now!</SignInLink>
-            </StyledConnect>
-        </Wrapper>
+                <AuthLink to='/signup'>Sign up now!</AuthLink>
+            </StyledConnectLogin>
+        </WrapperLogin>
     )
 }
-
 export default LoginForm
 
+
+const StyledTitle = styled.form`
+    margin-bottom: 55px;
+`
+const FormGroup = styled.div`
+`
 const commonStyleInput = `
     border-radius: 0px;
     border: none;
@@ -98,23 +103,6 @@ const commonRememberForgot = `
     color: #3A3A3A;
     font-size: 14px;
     font-weight: 400;
-`
-
-const Wrapper = styled(Form)`
-    width: 38%;
-    padding: 60px 50px 30px 50px;
-    border-radius: 20px;
-    box-shadow: 0px 0px 5px 2px rgba(58, 58, 58, 0.20);
-    font-family: Noto Sans;
-    background-color: white;
-    
-    margin: 2.5% 55%;
-`
-
-const StyledTitle = styled.form`
-    margin-bottom: 55px;
-`
-const FormGroup = styled.div`
 `
 const StyledEmail = styled(Form.Control)`
     ${commonStyleInput}
@@ -146,60 +134,6 @@ const ForgotLink = styled.a`
     ${commonRememberForgot}
     margin-left: auto;
     text-decoration-line: underline;
-
-    &:hover {
-        color: #D9534F;
-    }
-`
-
-const StyledButton = styled.div`
-    padding-top: 55px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-`
-
-const TextButton = styled.div`
-    border-radius: 20px;
-    background: #D9534F;
-    color: white;
-    font-size: 17px;
-    font-weight: 600;
-    width: 50%;
-    height: 40px;
-    padding: 5px;
-    text-align: center;
-
-    &:hover {
-        background-color: #EC5E5A;
-    }
-
-    a {
-        text-decoration: none;
-        color: white;
-    }
-`
-
-const TextButton2 = styled.div`
-    margin-top: 30px;
-    margin-bottom: 20px;
-`
-
-const StyledConnect = styled.div`
-    display: flex;
-    justify-content: center; 
-    align-items: center;
-    margin-top: 40px;
-
-    p {
-        margin-right: 10px;
-        margin-bottom: 0px;
-    }
-`
-
-const SignInLink = styled(Link)`
-    font-weight: 500;
-    color: #3A3A3A;
 
     &:hover {
         color: #D9534F;

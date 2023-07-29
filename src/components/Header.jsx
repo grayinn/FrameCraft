@@ -14,17 +14,24 @@ import ChangePasswordModal from "./Popup/P_ChangePass"
 import ChangeInformationModal from "./Popup/P_ChangeInfor"
 
 import { Wrapper, LogoWrapper, SearchBarWapper, IconButton, Container, SearchWrapper } from '../styleCommon/Header'
+import ViewNoti from './ViewNoti'
 
 
 function Header() {
   const [passwordModal, setPasswordModal] = useState(false)
   const [infoModal, setInfoModal] = useState(false)
 
+  const [showNotification, setShowNotification] = useState(false);
+
   const togglePasswordModal = () => {
     setPasswordModal(!passwordModal)
   }
   const toggleInfoModal = () => {
     setInfoModal(!infoModal);
+  }
+
+  const toggleNotification = () => {
+    setShowNotification(!showNotification);
   }
 
   return (
@@ -60,9 +67,10 @@ function Header() {
 
         <IconsWrapper>
 {/* 0. View notification */}
-          <NotifIcon>
+          <NotifIcon onClick={toggleNotification}>
               <NotificationsIcon fontSize="medium" />
           </NotifIcon>
+          {showNotification && <ViewNoti />}
 
 {/* --- */}
           <AvatarIcon>
@@ -147,6 +155,10 @@ const NotifIcon = styled.div`
     margin-right: 70%;
     margin-left: 70%;
     cursor: pointer;
+
+    // :active & {
+    //   display: block;
+    // }
 `
 
 const AvatarIcon = styled.div`

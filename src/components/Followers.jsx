@@ -8,7 +8,7 @@ const UserCard = ({ avatar, name, username }) => {
 
     const handleFollowButtonClick = () => {
         setIsFollowing(!isFollowing)
-      }
+    }
     
     return (
         <UserContainer>
@@ -73,5 +73,4 @@ function Followers() {
         </FollowingContainer>
     )
 }
-
 export default Followers

@@ -8,32 +8,32 @@ const CommonPin = `
     font-family: Noto Sans;
 
     &:hover {
-    opacity: 0.9;
+      opacity: 0.9;
     }
 
     img {
-    width: 100%;
-    height: auto;
-    border-radius: 20px;
-    cursor: pointer;
-    margin-bottom: 15px;
+      width: 100%;
+      height: auto;
+      border-radius: 20px;
+      cursor: pointer;
+      margin-bottom: 15px;
     }
 
     .info {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 10px;
-    background-color: rgba(0, 0, 0, 0.3);
-    color: #fff;
-    font-size: 15px;
-    text-align: center;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-    margin-bottom: 15px;
-    border-radius: 0px 0px 20px 20px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 10px;
+      background-color: rgba(0, 0, 0, 0.3);
+      color: #fff;
+      font-size: 15px;
+      text-align: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+      margin-bottom: 15px;
+      border-radius: 0px 0px 20px 20px;
     }
 
     .title {
@@ -68,7 +68,7 @@ export const PinWrapper1 = styled.div`
         display: flex;
         align-items: center;
         cursor: pointer;
-        margin-right: 15px;
+        margin-right: 60px;
       }
     
       .edit {

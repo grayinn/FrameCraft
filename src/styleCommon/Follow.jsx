@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 
+// -- This is Following + Followers component
 export const FollowingContainer = styled.div`
     display: flex;
     flex-direction: column;

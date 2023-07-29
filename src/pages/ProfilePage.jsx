@@ -1,11 +1,11 @@
+// -- Trang profile - Created
 import React, { useState } from 'react'
 import styled from "styled-components"
 import { Link } from 'react-router-dom'
-
 import PinCreated from '../components/PinCreated'
 import unsplash from '../api/unsplash'
-
 import avatarprofile from '../assets/image/prf_avatar.svg'
+
 import FavoriteIcon from '@mui/icons-material/Favorite'
 import DashboardCustomizeIcon from '@mui/icons-material/DashboardCustomize'
 import AddCircleRoundedIcon from '@mui/icons-material/AddCircleRounded'
@@ -14,9 +14,11 @@ import Header from '../components/Header'
 import FollowersModal from '../components/Popup/P_Follower'
 import FollowingModal from '../components/Popup/P_Following'
 
-import { Wrapper, Container, HorizontalLine, CoverContainer, ButtonGroupCover, Avatar,
-         ProfileInformation, ProfileDetails, Name, Quantity, Desc,
-         ButtonGroup, IconWrapper, MainboardWrapper, FollowButton } from '../styleCommon/Profile'
+// import { ButtonGroupCover, Avatar,
+//          ProfileInformation, ProfileDetails, Name, Quantity, Desc,
+//          ButtonGroup, IconWrapper, MainboardWrapper, FollowButton } from '../styleCommon/Profile'
+
+import { ButtonGroupCover, ButtonGroup, Button1, Button2 } from '../styleCommon/Button'
 
 function ProfilePage() {
     const [images, setImages] = useState([]);
@@ -54,9 +56,7 @@ function ProfilePage() {
         <Wrapper>
             <Header />
             <HorizontalLine />
-
             <Container>
-
                 <CoverContainer>
                     <ButtonGroupCover className="button-group">     
                         <div className="button remove">- Remove</div>
@@ -79,12 +79,10 @@ function ProfilePage() {
                                 <span className="bold-text">23 </span>Posts
                             </FollowButton>
 
-
                             <FollowButton onClick={toggleFollowerModal}>
                                 <span className="bold-text">118 </span>Followers
                             </FollowButton>
                             <FollowersModal showModal={followerModal} closeModal={toggleFollowerModal} />
-
 
                             <FollowButton onClick={toggleFollowingModal}>
                                 <span className="bold-text">78 </span>Following
@@ -124,66 +122,50 @@ function ProfilePage() {
                         <p>Create post</p>
                     </GrayBox>
                     ) : (
-                    <PinCreated imageUrl={image.urls.regular} />
+                    <PinCreated 
+                        imageUrl={image.urls.regular} 
+                        title={image.description} 
+                        likes={image.likes}
+                    />
                     )}
                 </div>
                 ))}
             </MainboardWrapper>
-
         </Wrapper>
     )
 }
 export default ProfilePage
 
-
-const Button1 = styled.div`
-    width: 10%;
-    padding: 7px;
-    border-radius: 20px 0px 0px 20px;
-    background-color: red;
+export const Wrapper = styled.div`
+    justify-content: center;
     align-items: center;
-    cursor: pointer;
+    min-height: 100vh;
+`
 
-    background-color: #D9534F;
-    color: #fff;
-    border: 1px solid #CF4C48;
+export const Container = styled.div`
+`
 
-    p {
+export const HorizontalLine = styled.div`
+    width: 100%;
+    border-top: 1px solid #CBCBCB;
+    margin-top: 5px;
+`
+
+export const CoverContainer = styled.div`
+    width: 100%;
+    height: 120px;
+    background-color: #EBA29A;
+    position: relative;
+
+    &:hover .button-group {
         display: flex;
-        justify-content: center;
-        margin-bottom: 0;
     }
 
     &:hover {
-        background-color: #EC5E5A; 
+        background-color: #E19991;
     }
 `
 
-const Button2 = styled.div`
-    width: 10%;
-    padding: 7px;
-    border-radius: 0px 20px 20px 0px;
-    cursor: pointer;
-
-    background-color: white;
-    color: rgba(58, 58, 58, 0.80);
-    border: 1px solid rgba(58, 58, 58, 0.80);
-
-    p {
-        display: flex;
-        justify-content: center;
-        margin-bottom: 0;
-    }
-
-    &:hover {
-        background-color: #EBEBEB;
-    }
-
-    a {
-        text-decoration: none;
-        color: rgba(58, 58, 58, 0.80);
-}
-`
 
 const GrayBox = styled.div`
     height: 250px;
@@ -201,4 +183,87 @@ const GrayBox = styled.div`
     p {
         margin-top: 10px;
     }
+`
+
+export const Avatar = styled.div` 
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    img {
+        width: 65%;
+        margin: auto;
+        display: block;
+    }
+`
+
+export const ProfileInformation = styled.div`
+    text-align: center;
+    margin-top: 4.8%;
+`
+
+export const ProfileDetails = styled.div`
+`
+
+export const Name = styled.div`
+    h1 {
+        color: #000;
+        font-size: 28px;
+        margin-bottom: 3px;
+    }
+
+    p {
+        color: #727272;
+        font-size: 15px;
+        margin-bottom: 6px;
+    }
+`
+
+export const Quantity = styled.div`
+    display: flex;
+    justify-content: center;
+    font-size: 15px;
+    cursor: pointer;
+
+    p {
+        margin-left: 11px;
+        margin-bottom: 5px;
+    }
+
+    .bold-text {
+        font-weight: bold;
+    }
+`
+
+export const Desc = styled.div`
+    p {
+        color: #727272;
+        font-size: 15px;
+    }
+`
+
+export const IconWrapper = styled.div`
+    display: flex;
+    justify-content: center;
+
+    .icon1 {
+        margin-right: 8px;
+        padding: 2px;
+    }
+
+    .icon2 {
+        margin-right: 8px;
+    }
+`
+
+export const MainboardWrapper = styled.div`
+    margin: 1% 3.5% 3.5% 3.5%;
+    columns: 5 250px;
+    column-gap: 15px;
+`
+
+export const FollowButton = styled.div`
+    padding: 4px 10px;
+    color: #3A3A3A;
+    font-size: 15px;
 `

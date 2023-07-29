@@ -34,8 +34,6 @@ export const SearchBarWapper = styled.div`
     width: 100%;
     border-radius: 50px;
     border: 1.5px solid #D9534F;
-
-    //min-width: 100%;
     padding: 10px;
 
     align-items: center;
