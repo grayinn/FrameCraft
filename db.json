@@ -1,0 +1,54 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "describe": "Lorem ipsum dolor sit amet consectetur. Lobortis sed commodo augue sed non at enim. Hendrerit tellus in dis non amet nulla viverra pharetra hac."
+    },
+    {
+      "describe": "The photo captures a breathtaking sunset over a serene beach. The sky is painted with hues of orange, pink, and purple, reflecting on the calm waters below. Silhouettes of palm trees line the shore, adding to the tranquil atmosphere. The setting sun casts long shadows on the sandy beach, creating a mesmerizing and peaceful scene.",
+      "id": 3
+    },
+    {
+      "describe": "In this picture, a group of friends is huddled around a campfire under a starry night sky. The warm glow of the fire illuminates their happy faces as they share stories and laughter. Above them, the Milky Way stretches across the sky, dotted with countless stars, creating a magical and unforgettable camping experience.",
+      "id": 4
+    },
+    {
+      "describe": "The photograph showcases a bustling cityscape at night. Skyscrapers adorned with vibrant neon lights tower over busy streets filled with speeding cars and bustling pedestrians. The city's energy is palpable, with the colorful lights creating an urban symphony that never sleeps.",
+      "id": 5
+    },
+    {
+      "describe": "A close-up shot captures the delicate beauty of a blooming flower. The petals are a soft shade of pink with a gradient of white towards the center. Tiny water droplets from morning dew cling to the petals, adding a touch of freshness to the floral composition. The image exudes nature's elegance and the wonder of botanical life.",
+      "id": 6
+    },
+    {
+      "describe": "This photograph depicts an ancient, weathered castle perched atop a rugged cliff. The castle's imposing stone walls tell tales of a rich history, while the expansive view from the cliff offers a breathtaking panorama of lush valleys and winding rivers below. The combination of natural beauty and architectural grandeur creates a captivating image.",
+      "id": 7
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "So great! I love it, thank you so much <3",
+      "name": "Lucinda George",
+      "postId": 1
+    },
+    {
+      "body": "This shot of friends around the campfire under the starry sky is pure wanderlust! I can almost smell the campfire and hear the crackling sound. What an adventure that must have been!",
+      "name": "AdventureSeeker",
+      "postId": "3",
+      "id": 3
+    },
+    {
+      "body": "I'm a city person, and this urban night scene with all the neon lights is just my vibe! The city never sleeps, and this photo perfectly captures its electric energy and vibrant atmosphere. Love it!",
+      "name": "CityExplorer",
+      "postId": "4",
+      "id": 4
+    },
+    {
+      "body": "Such a powerful image of the majestic tiger! The piercing eyes and the wild beauty remind us of the importance of preserving these incredible creatures and their natural habitats. Let's protect our wildlife!",
+      "name": "AnimalProtector",
+      "postId": "5",
+      "id": 5
+    }
+  ]
+}

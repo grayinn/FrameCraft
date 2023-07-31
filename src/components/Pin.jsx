@@ -52,6 +52,7 @@ const PinWrapper = styled.div `
     img {
       width: 100%;
       height: auto;
+      object-fit: cover;
       border-radius: 20px;
       cursor: pointer;
 
@@ -114,5 +115,6 @@ const UserInfo = styled.div`
 
 const UserName = styled.div`
      margin-bottom: 17px;
+     color: black;
 `
 

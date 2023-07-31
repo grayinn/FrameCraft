@@ -13,11 +13,6 @@ import AddCircleRoundedIcon from '@mui/icons-material/AddCircleRounded'
 import Header from '../components/Header'
 import FollowersModal from '../components/Popup/P_Follower'
 import FollowingModal from '../components/Popup/P_Following'
-
-// import { ButtonGroupCover, Avatar,
-//          ProfileInformation, ProfileDetails, Name, Quantity, Desc,
-//          ButtonGroup, IconWrapper, MainboardWrapper, FollowButton } from '../styleCommon/Profile'
-
 import { ButtonGroupCover, ButtonGroup, Button1, Button2 } from '../styleCommon/Button'
 
 function ProfilePage() {
@@ -117,10 +112,12 @@ function ProfilePage() {
                 {images.map((image, index) => (
                 <div key={image.id}>
                     {index === 0 ? (
-                    <GrayBox>
-                        <AddCircleRoundedIcon fontSize="large" />
-                        <p>Create post</p>
-                    </GrayBox>
+                    <Link to='/createpost'>
+                        <GrayBox>
+                            <AddCircleRoundedIcon fontSize="large" />
+                            <p>Create post</p>
+                        </GrayBox>
+                    </Link>
                     ) : (
                     <PinCreated 
                         imageUrl={image.urls.regular} 
@@ -260,6 +257,10 @@ export const MainboardWrapper = styled.div`
     margin: 1% 3.5% 3.5% 3.5%;
     columns: 5 250px;
     column-gap: 15px;
+
+    a {
+        text-decoration: none;
+    }
 `
 
 export const FollowButton = styled.div`

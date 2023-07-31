@@ -24,9 +24,10 @@ function App() {
         <Route path='/createpost' element={<CreatePost />} />
         <Route path='/profile' element={<ProfilePage />} />
         <Route path='/profilefavorite' element={<ProfileFavor />} />
+        <Route path="/detail/:id" Component={ViewDetailPost} />
       </Routes>
 
-      <ViewDetailPost />
+      {/* <ViewDetailPost /> */}
 
     </Router>
   )

@@ -135,7 +135,7 @@ const Content3 = styled.div`
   font-size: 22.5px;
   padding-left: 11%;
   opacity: 0.8999999761581421;
-  margin-bottom: 27px;
+  padding-bottom: 27px;
 `
 
 const ImageLeft = styled.div`
@@ -176,7 +176,7 @@ const ImageRight = styled.div`
   }
 
   .img6 {
-    margin-top: 20%;
+    margin-top: 21%;
   }
 
   .img10 {

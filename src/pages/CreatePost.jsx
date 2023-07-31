@@ -55,7 +55,9 @@ const CreatePost = () => {
 
 export default CreatePost
 
+
 const Wrapper = styled.div`
+    height: 100vh;
 `
 
 const HorizontalLine = styled.div`
@@ -90,7 +92,7 @@ const Container = styled.div`
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.18);
 
     padding: 60px 80px 60px 80px;
-    height: 40%;
+    height: 80vh;
 `
 
 const LeftSection = styled.div`
