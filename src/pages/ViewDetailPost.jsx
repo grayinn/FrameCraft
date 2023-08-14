@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
-import Header from '../components/Header'
 import { useParams } from 'react-router-dom'
 import unsplash from '../api/unsplash'
 import AVTuser from '../assets/image/avatar_user.svg'
@@ -8,125 +7,166 @@ import Avatar from '../assets/image/headeravt.svg'
 
 import FavoriteIcon from '@mui/icons-material/Favorite'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
+import Comment from '../components/Comment'
+import Header from '../components/Header'
 
 
 function ViewDetailPost() {
-  const [selectedImage, setSelectedImage] = useState(null)
-  const { id } = useParams()
-  const [isLiked, setIsLiked] = useState(false)
-  
+    const [selectedImage, setSelectedImage] = useState(null)
+    const { id } = useParams()
+    const [isLiked, setIsLiked] = useState(false)
 
-  const handleLike = () => {
-    setIsLiked(!isLiked)
-  }
+    // comment
+    const [comments, setComments] = useState([])
 
-
-  useEffect(() => {
-    const fetchImageDetail = async (imageId) => {
-      try {
-        const response = await unsplash.get(`photos/${imageId}`)
-        const imageData = response.data
-
-        const { id, urls, description, likes, user } = imageData
-        const userName = user && user.name ? user.name : 'Unknown'
-
-        const selectedImageData = {
-          id,
-          imageUrl: urls.regular,
-          title: description,
-          likes,
-          userName,
+    const handleAddComment = (text) => {
+      if (text.trim() !== '') {
+        const newComment = {
+          id: new Date().getTime(),
+          text,
         }
-
-        setSelectedImage(selectedImageData);
-      } catch (error) {
-        console.error('Error', error)
+        setComments([...comments, newComment])
       }
     }
 
-    fetchImageDetail(id)
-  }, [id])
+    const handleUpdateComment = (id, text) => {
+      const updatedComments = comments.map((comment) =>
+        comment.id === id ? { ...comment, text } : comment
+      )
+      setComments(updatedComments)
+    }
 
-  return (
-    <ViewDetailContainer>
-      <Header />
-      <HorizontalLine />
-      <Container>
-        <LeftSection>
-          {selectedImage ? (
-            <>
-              <ImageWrapper>
-                <img src={selectedImage.imageUrl} alt={selectedImage.title} />
-
-                <LikesContainer className='likes' onClick={handleLike}>
-                  {isLiked ? (
-                    <FavoriteIcon style={{ marginRight: '4px', marginLeft: '42%', color: '#D9534F' }} />
-                  ) : (
-                    <FavoriteBorderIcon style={{ marginRight: '4px', marginLeft: '42%' }} />
-                  )}
-                  {selectedImage.likes}
-                </LikesContainer>
-              </ImageWrapper>
-              <ImageTitle>{selectedImage.title}</ImageTitle>
-            </>
-          ) : (
-            <p>Loading...</p>
-          )}
-        </LeftSection>
+    const handleDeleteComment = (id) => {
+      const updatedComments = comments.filter((comment) => comment.id !== id)
+      setComments(updatedComments)
+    }
+    
+    const handleLike = () => {
+      setIsLiked(!isLiked)
+    }
 
 
-        <RightSection>
-          <UserInfor>
-            <div className='user-inf'>
-              <img className='avatar-user' src={AVTuser} alt=""/>
-              <UserName>{selectedImage && selectedImage.userName}</UserName>
-            </div>
-            <FollowButton>Follow</FollowButton>
-          </UserInfor>
+    useEffect(() => {
+      const fetchImageDetail = async (imageId) => {
+        try {
+          const response = await unsplash.get(`photos/${imageId}`)
+          const imageData = response.data
 
-          <Describe>
-            <p>Lorem ipsum dolor sit amet consectetur. Lobortis sed commodo augue sed non at enim. Hendrerit tellus in dis non amet nulla viverra pharetra hac.</p>
-          </Describe>
+          const { id, urls, description, likes, user } = imageData
+          const userName = user && user.name ? user.name : 'Unknown'
 
-          <HorizontalLine style={{ width: '480px' }} />
-{/* -------------------------------- */}
-          <UserInfor2>
-            <div className='user-inf2'>
-              <img className='avatar-user2' src={AVTuser} alt=""/>
-              <UserName2>Michael Jincho</UserName2>
-            </div>
-          </UserInfor2>
-          <Describe2>
-            <p>So great! I love it, thank you so much :3</p>
-          </Describe2>
-{/* ------------------------------- */}
+          const selectedImageData = {
+            id,
+            imageUrl: urls.regular,
+            title: description,
+            likes,
+            userName,
+          }
 
-          <HorizontalLine style={{ width: '480px', marginTop: '52%'}} />
+          setSelectedImage(selectedImageData)
+        } catch (error) {
+          console.error('Error', error)
+        }
+      }
 
-          <YourComment>
-            <img src={Avatar} alt=""/>
-            <input placeholder='Write comment...'></input>
-          </YourComment>
-        </RightSection>
+      fetchImageDetail(id)
+    }, [id])
 
-      </Container>
-    </ViewDetailContainer>
-  )
+    return (
+      <ViewDetailContainer>
+        <Header />
+        <HorizontalLine />
+        <Container>
+          <LeftSection>
+            {selectedImage ? (
+              <>
+                <ImageWrapper>
+                  <img src={selectedImage.imageUrl} alt={selectedImage.title} />
+
+                  <LikesContainer className='likes' onClick={handleLike}>
+                    {isLiked ? (
+                      <FavoriteIcon style={{ marginRight: '4px', marginLeft: '42%', color: '#D9534F' }} />
+                    ) : (
+                      <FavoriteBorderIcon style={{ marginRight: '4px', marginLeft: '42%' }} />
+                    )}
+                    {selectedImage.likes}
+                  </LikesContainer>
+                </ImageWrapper>
+                <ImageTitle>{selectedImage.title}</ImageTitle>
+              </>
+            ) : (
+              <p>Loading...</p>
+            )}
+          </LeftSection>
+
+
+          <RightSection>
+            <UserInfor>
+              <div className='user-inf'>
+                <img className='avatar-user' src={AVTuser} alt=""/>
+                <UserName>{selectedImage && selectedImage.userName}</UserName>
+              </div>
+              <FollowButton>Follow</FollowButton>
+            </UserInfor>
+
+            <Describe>
+              <p>Lorem ipsum dolor sit amet consectetur. Lobortis sed commodo augue sed non at enim. Hendrerit tellus in dis non amet nulla viverra pharetra hac.</p>
+            </Describe>
+
+            <HorizontalLine style={{ width: '480px' }} />
+  {/* -------------------------------- */}
+            <UserInfor2>
+              <div className='user-inf2'>
+                <img className='avatar-user2' src={AVTuser} alt=""/>
+                <UserName2>Michael Jincho</UserName2>
+              </div>
+            </UserInfor2>
+            <Describe2>
+              <p>So great! I love it, thank you so much :3</p>
+            </Describe2>
+  {/* ------------------------------- */}
+
+            {comments.map((comment) => (
+              <Comment
+                key={comment.id}
+                comment={comment}
+                onDelete={handleDeleteComment}
+                onUpdate={handleUpdateComment}
+              />
+            ))}
+
+            <HorizontalLine style={{ width: '480px', position: 'fixed', bottom: '17%'}} />
+
+            <YourComment>
+              <img src={Avatar} alt="" />
+              <input
+                placeholder="Write comment..."
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter') {
+                    handleAddComment(e.target.value);
+                    e.target.value = ''
+                  }
+                }}
+              />
+            </YourComment>
+          </RightSection>
+
+        </Container>
+      </ViewDetailContainer>
+    )
 }
 export default ViewDetailPost
 
 
 
 const ViewDetailContainer = styled.div`
-    height: 100vh;
+    height: 90vh;
 `
-
 const HorizontalLine = styled.div`
     width: 100%;
     border-top: 1px solid #CBCBCB;
     margin-top: 5px;
     margin-bottom: 20px;
-
 `
 
 const Container = styled.div`
@@ -186,8 +226,8 @@ const ImageTitle = styled.h2`
     margin-top: 20px;
     margin-bottom: 0px;
 `
-// --------
 
+// --------
 const RightSection = styled.div`
     margin-left: 70px;
 `
@@ -227,6 +267,11 @@ const FollowButton = styled.button`
 `
 
 const YourComment = styled.div`
+    position: fixed;
+    bottom: 90px; 
+    right: 293px; 
+    display: flex;
+    align-items: center;
 
     img {
       width: 39px;
@@ -258,7 +303,6 @@ const Describe = styled.div`
     }
 `
 
-
 // ----------------- 2 --------
 const UserInfor2 = styled.div`
     display: flex;
@@ -289,6 +333,3 @@ const Describe2 = styled.div`
       font-weight: 300;
     }
 `
-
-
-

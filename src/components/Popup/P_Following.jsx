@@ -6,15 +6,15 @@ import Following from '../Following'
 function FollowingModal({ showModal, closeModal }) {
     return (
         showModal && (
-        <ModalContainer>
-            <ModalOverlay onClick={closeModal} />
-            <ModalContent style={{ height: 'auto' }}>
-            <CloseModalButton onClick={closeModal}>
-                <CloseIcon />
-            </CloseModalButton>
-            <Following />
-            </ModalContent>
-        </ModalContainer>
+            <ModalContainer>
+                <ModalOverlay onClick={closeModal} />
+                <ModalContent style={{ height: 'auto' }}>
+                <CloseModalButton onClick={closeModal}>
+                    <CloseIcon />
+                </CloseModalButton>
+                <Following />
+                </ModalContent>
+            </ModalContainer>
         )
     )
 }

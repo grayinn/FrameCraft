@@ -17,19 +17,37 @@ import { Wrapper, LogoWrapper, SearchBarWapper, IconButton, Container, SearchWra
 import ViewNoti from './ViewNoti'
 
 
-function Header() {
+function Header({ onSearch }) {
+  const [searchQuery, setSearchQuery] = useState("");
+
   const [passwordModal, setPasswordModal] = useState(false)
   const [infoModal, setInfoModal] = useState(false)
-
   const [showNotification, setShowNotification] = useState(false);
+
+  // search
+  const handleSearch = (e) => {
+    e.preventDefault()
+    onSearch(searchQuery)
+  }
+
+  // enter search
+  const handleInputChange = (e) => {
+    setSearchQuery(e.target.value);
+  }
+  
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault()
+      onSearch(searchQuery)
+    }
+  }
 
   const togglePasswordModal = () => {
     setPasswordModal(!passwordModal)
   }
   const toggleInfoModal = () => {
-    setInfoModal(!infoModal);
+    setInfoModal(!infoModal)
   }
-
   const toggleNotification = () => {
     setShowNotification(!showNotification);
   }
@@ -45,10 +63,16 @@ function Header() {
 
         <SearchWrapper>
           <SearchBarWapper>
-            <form>
-              <input type="text" placeholder="Search..." />
+            <form onSubmit={handleSearch}>
+              <input 
+                type="text" 
+                placeholder="Search..." 
+                value={searchQuery}
+                onChange={handleInputChange}
+                onKeyPress={handleKeyPress}
+              />
             </form>
-            <IconButton>
+            <IconButton onClick={handleSearch}>
               <SearchIcon />
             </IconButton>
           </SearchBarWapper>
@@ -155,10 +179,6 @@ const NotifIcon = styled.div`
     margin-right: 70%;
     margin-left: 70%;
     cursor: pointer;
-
-    // :active & {
-    //   display: block;
-    // }
 `
 
 const AvatarIcon = styled.div`

@@ -4,8 +4,6 @@ import Avatar from '../assets/image/headeravt.svg'
 import Noti1 from '../assets/image/noti1.svg'
 import Noti2 from '../assets/image/noti2.svg'
 
-//import { UserContainer, Title, HorizontalLine } from '../styleCommon/Follow'
-
 
 const UserCard = ({ avatar, name, activity, acti, image }) => {
     return (
@@ -27,49 +25,49 @@ const UserCard = ({ avatar, name, activity, acti, image }) => {
     )
 }
 function ViewNoti() {
-  return (
-    <ViewNotiContainer>
-        <UserInforLabel>
-            <Title>Your notificationn</Title>
-            <HorizontalLine />
-        </UserInforLabel>
-        <DetailNoti>
-            <UserCard
-                avatar={Avatar}
-                name="Emily Martinez"
-                activity="liked your post"
-                acti="3 mins ago"
-            />
-            <UserCard
-                avatar={Avatar}
-                name="Emily Martinez"
-                activity="commented: That so gr.."
-                acti="10 mins ago"
-                image={Noti1}
-            />
-            <UserCard
-                avatar={Avatar}
-                name="Emily Martinez"
-                activity="mentioned you in a c.."
-                acti="30 mins ago"
-                image={Noti2}
-            />
-            <UserCard
-                avatar={Avatar}
-                name="Emily Martinez"
-                activity="liked your post"
-                acti="1 hour ago"
-            />
-            <UserCard
-                avatar={Avatar}
-                name="Emily Martinez"
-                activity="commented: That so gr.."
-                acti="2 hours ago"
-                image={Noti1}
-            />
-        </DetailNoti>
-    </ViewNotiContainer>
-  )
+    return (
+        <ViewNotiContainer>
+            <UserInforLabel>
+                <Title>Your notificationn</Title>
+                <HorizontalLine />
+            </UserInforLabel>
+            <DetailNoti>
+                <UserCard
+                    avatar={Avatar}
+                    name="Emily Martinez"
+                    activity="liked your post"
+                    acti="3 mins ago"
+                />
+                <UserCard
+                    avatar={Avatar}
+                    name="Emily Martinez"
+                    activity="commented: That so gr.."
+                    acti="10 mins ago"
+                    image={Noti1}
+                />
+                <UserCard
+                    avatar={Avatar}
+                    name="Emily Martinez"
+                    activity="mentioned you in a c.."
+                    acti="30 mins ago"
+                    image={Noti2}
+                />
+                <UserCard
+                    avatar={Avatar}
+                    name="Emily Martinez"
+                    activity="liked your post"
+                    acti="1 hour ago"
+                />
+                <UserCard
+                    avatar={Avatar}
+                    name="Emily Martinez"
+                    activity="commented: That so gr.."
+                    acti="2 hours ago"
+                    image={Noti1}
+                />
+            </DetailNoti>
+        </ViewNotiContainer>
+    )
 }
 export default ViewNoti
 

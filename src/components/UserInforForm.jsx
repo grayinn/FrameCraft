@@ -111,12 +111,10 @@ const UserInforForm = ({onClose}) => {
                         </div>
                     </div>
 
-                    {/* <ButtonCS /> */}
                     <ButtonContainer>
                         <Link to='/mainpage'>
                             <button onClick={onClose} className="cancel">Cancel</button>
                         </Link>
-
                         <Link to='/mainpage'>
                             <button onClick={onClose}>Save</button>
                         </Link>

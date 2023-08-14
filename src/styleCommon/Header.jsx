@@ -4,7 +4,6 @@ export const Wrapper = styled.form`
     font-family: Noto Sans;
     background-color: white;
 `
-
 export const Container = styled.div`
     display: flex;
     flex: 1;
@@ -14,18 +13,15 @@ export const Container = styled.div`
     margin-left: 3.5%;
 
 `
-
 export const LogoWrapper = styled.div`
     cursor: pointer;
     margin-top: 10px;
     margin-right: 11%;
 `
-
 export const SearchWrapper = styled.div`
     min-width: 42%;
     margin-right: 10%;
 `
-
 export const SearchBarWapper = styled.div`
     display: flex;
     flex: 1;

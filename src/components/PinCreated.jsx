@@ -7,7 +7,9 @@ import DriveFileRenameOutlineIcon from '@mui/icons-material/DriveFileRenameOutli
 function PinCreated({ imageUrl, title, likes }) {
   const [isLiked, setIsLiked] = useState(false)
 
-  const handleLike = () => {
+  const handleLike = (e) => {
+    e.preventDefault()
+    e.stopPropagation()
     setIsLiked(!isLiked)
   }
 

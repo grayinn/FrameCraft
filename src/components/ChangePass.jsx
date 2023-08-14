@@ -6,7 +6,6 @@ import { ButtonContainer1 } from '../styleCommon/Button'
 
 
 function ChangePass(onChangePass) {
-
     const [CurrentPassword, setCurrentPassword] = useState('')
     const [NewPassword, setNewPassword] = useState('')
     const [ReEnterPassword, setReEnterPassword] = useState('')

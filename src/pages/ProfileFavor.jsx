@@ -2,9 +2,9 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import Pin from '../components/Pin'
-import Header from '../components/Header'
 import FollowersModal from '../components/Popup/P_Follower'
 import FollowingModal from '../components/Popup/P_Following'
+import Header from '../components/Header'
 
 import unsplash from '../api/unsplash'
 import avatarprofile from '../assets/image/prf_avatar.svg'
@@ -33,12 +33,6 @@ function ProfileFavor() {
             per_page: 20,
             },
         })
-    //     setImages(response.data.results)
-
-    //     } catch (error) {
-    //     console.error(error);
-    //     }
-    // }
 
         const imagesWithUserNames = response.data.results.map((imageData) => {
             const { id, urls, description, likes, user } = imageData
@@ -69,7 +63,6 @@ function ProfileFavor() {
             <HorizontalLine />
 
             <Container>
-
                 <CoverContainer>
                     <ButtonGroupCover className="button-group">     
                         <div className="button remove">- Remove</div>
@@ -131,13 +124,15 @@ function ProfileFavor() {
 
             <MainboardWrapper>
                 {images.map((image) => (
-                    <Pin 
-                        key={image.id}
-                        imageUrl={image.imageUrl}
-                        title={image.title}
-                        likes={image.likes}
-                        userName={image.userName} 
-                    />
+                    <Link to={`/detail/${image.id}`} key={image.id}>
+                        <Pin 
+                            key={image.id}
+                            imageUrl={image.imageUrl}
+                            title={image.title}
+                            likes={image.likes}
+                            userName={image.userName} 
+                        />
+                    </Link>
                 ))}
             </MainboardWrapper>
         </Wrapper>
@@ -250,6 +245,10 @@ export const MainboardWrapper = styled.div`
     margin: 1% 3.5% 3.5% 3.5%;
     columns: 5 250px;
     column-gap: 15px;
+
+    a {
+        text-decoration: none;
+    }
 `
 
 export const FollowButton = styled.div`

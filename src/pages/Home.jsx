@@ -9,10 +9,8 @@ import HomeIMG5 from '../assets/image/ldp-image5.png'
 import HomeIMG6 from '../assets/image/ldp-image6.png'
 import HomeIMG7 from '../assets/image/ldp-image7.png'
 import HomeIMG8 from '../assets/image/ldp-image8.png'
-//import HomeIMG9 from '../assets/image/ldp-image9.png'
 import HomeIMG10 from '../assets/image/home-img11.svg'
 import HomeIMG11 from '../assets/image/home-img10.svg'
-
 import HomeIMG1 from '../assets/image/home-img1.svg'
 import HomeIMG2 from '../assets/image/home-img2.svg'
 
@@ -56,8 +54,6 @@ function Home () {
               <div className='box'><img className='img6' src={HomeIMG6} alt="" /></div>
               <div className='box'><img className='img7' src={HomeIMG7} alt="" /></div>
               <div className='box'><img className='img8' src={HomeIMG8} alt="" /></div>
-
-              {/* <div className='box'><img className='img9' src={HomeIMG9} alt="" /></div> */}
               <div className='box'><img className='img10' src={HomeIMG10} alt="" /></div>
               <div className='box'><img className='img11' src={HomeIMG11} alt="" /></div>
           </ImageRight>
@@ -73,11 +69,9 @@ export default Home
 const Wrapper = styled.div`
   background-color: #D9534F;
   background-size: cover;
-
   background-repeat: no-repeat;
   width: 100%;
   height: 100vh;
-  //min-height: 100vh;
   overflow: hidden;
 `
 
@@ -183,8 +177,4 @@ const ImageRight = styled.div`
     margin-top: 35%;
   }
 `
-
-
-
-
 

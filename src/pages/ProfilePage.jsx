@@ -1,8 +1,9 @@
 // -- Trang profile - Created
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from "styled-components"
 import { Link } from 'react-router-dom'
 import PinCreated from '../components/PinCreated'
+import Header from '../components/Header'
 import unsplash from '../api/unsplash'
 import avatarprofile from '../assets/image/prf_avatar.svg'
 
@@ -10,13 +11,12 @@ import FavoriteIcon from '@mui/icons-material/Favorite'
 import DashboardCustomizeIcon from '@mui/icons-material/DashboardCustomize'
 import AddCircleRoundedIcon from '@mui/icons-material/AddCircleRounded'
 
-import Header from '../components/Header'
 import FollowersModal from '../components/Popup/P_Follower'
 import FollowingModal from '../components/Popup/P_Following'
 import { ButtonGroupCover, ButtonGroup, Button1, Button2 } from '../styleCommon/Button'
 
 function ProfilePage() {
-    const [images, setImages] = useState([]);
+    const [images, setImages] = useState([])
     const [followerModal, setFollowerModal] = useState(false)
     const [followingModal, setFollowingModal] = useState(false)
 
@@ -30,22 +30,35 @@ function ProfilePage() {
 
     const getImages = async (term) => {
         try {
-        const response = await unsplash.get("search/photos", {
+          const response = await unsplash.get('search/photos', {
             params: {
-            query: term,
-            per_page: 20,
+              query: term,
+              per_page: 20,
             },
-        })
-        setImages(response.data.results)
-
+          })
+    
+          const imagesWithUserNames = response.data.results.map((imageData) => {
+            const { id, urls, description, likes, user } = imageData
+            const userName = user && user.name ? user.name : 'Unknown'
+    
+            return {
+              id,
+              imageUrl: urls.regular,
+              title: description,
+              likes,
+              userName, 
+            }
+          })
+    
+          setImages(imagesWithUserNames)
         } catch (error) {
-        console.error(error);
+          console.error(error)
         }
-    }
-
-    React.useEffect(() => {
-        getImages('plant') 
-    }, [])
+      }
+    
+      useEffect(() => {
+        getImages('plant')
+      }, [])
 
     return (
         <Wrapper>
@@ -111,7 +124,7 @@ function ProfilePage() {
             <MainboardWrapper>
                 {images.map((image, index) => (
                 <div key={image.id}>
-                    {index === 0 ? (
+                    {index === 0 ? ( 
                     <Link to='/createpost'>
                         <GrayBox>
                             <AddCircleRoundedIcon fontSize="large" />
@@ -119,11 +132,14 @@ function ProfilePage() {
                         </GrayBox>
                     </Link>
                     ) : (
-                    <PinCreated 
-                        imageUrl={image.urls.regular} 
-                        title={image.description} 
-                        likes={image.likes}
-                    />
+                    <Link to={`/detail/${image.id}`} key={image.id}>
+                        <PinCreated
+                            imageUrl={image.imageUrl}
+                            title={image.title}
+                            likes={image.likes}
+                            userName={image.userName}
+                        />
+                    </Link>
                     )}
                 </div>
                 ))}
@@ -133,21 +149,20 @@ function ProfilePage() {
 }
 export default ProfilePage
 
+
+
 export const Wrapper = styled.div`
     justify-content: center;
     align-items: center;
     min-height: 100vh;
 `
-
 export const Container = styled.div`
 `
-
 export const HorizontalLine = styled.div`
     width: 100%;
     border-top: 1px solid #CBCBCB;
     margin-top: 5px;
 `
-
 export const CoverContainer = styled.div`
     width: 100%;
     height: 120px;
@@ -162,7 +177,6 @@ export const CoverContainer = styled.div`
         background-color: #E19991;
     }
 `
-
 
 const GrayBox = styled.div`
     height: 250px;

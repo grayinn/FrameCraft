@@ -6,9 +6,11 @@ import AVTuser from '../assets/image/avatar_user.svg'
 
 
 function Pin({ imageUrl, title, likes, userName }) {
-  const [isLiked, setIsLiked] = useState(false);
+  const [isLiked, setIsLiked] = useState(false)
 
-  const handleLike = () => {
+  const handleLike = (e) => {
+    e.preventDefault()
+    e.stopPropagation()
     setIsLiked(!isLiked)
   }
 
@@ -55,7 +57,6 @@ const PinWrapper = styled.div `
       object-fit: cover;
       border-radius: 20px;
       cursor: pointer;
-
       margin-bottom: 15px;
     }
 
@@ -98,8 +99,6 @@ const PinTitle = styled.div`
     text-overflow: ellipsis;
 `
 
-
-
 const UserInfo = styled.div`
     display: flex;
     align-items: center;
@@ -117,4 +116,6 @@ const UserName = styled.div`
      margin-bottom: 17px;
      color: black;
 `
+
+
 

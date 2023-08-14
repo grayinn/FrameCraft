@@ -1,6 +1,7 @@
 // --- Popup ChangePass, ChangeInfor, Followers, Following
 import styled from 'styled-components'
 
+
 export const ModalContainer = styled.div`
     top: 0;
     left: 0;
@@ -12,7 +13,6 @@ export const ModalContainer = styled.div`
     align-items: center;
     z-index: 100;
 `
-
 export const ModalOverlay = styled.div`
     background: rgba(0, 0, 0, 0.8);
     position: fixed;
@@ -22,7 +22,6 @@ export const ModalOverlay = styled.div`
     bottom: 0;
     z-index: 99;
 `
-
 export const ModalContent = styled.div`
     border-radius: 20px;
     width: 35%;
@@ -30,7 +29,6 @@ export const ModalContent = styled.div`
     z-index: 101;
     background: #fff;
 `
-
 export const CloseModalButton = styled.button`
     position: absolute;
     top: 15px;

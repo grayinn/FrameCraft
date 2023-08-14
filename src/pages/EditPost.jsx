@@ -1,19 +1,59 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
-import { Link } from 'react-router-dom'
 import Avatar from '../assets/image/headeravt.svg'
-import { ButtonContainer } from '../styleCommon/Button'
+import { useParams } from 'react-router-dom'
+import unsplash from '../api/unsplash'
 import Header from '../components/Header'
-import ImageUploader from '../components/ImageUploader'
+import { Link } from 'react-router-dom'
 
-const CreatePost = () => {
+import { ButtonContainer } from '../styleCommon/Button'
+
+
+function ViewDetailPost() {
+    const [selectedImage, setSelectedImage] = useState(null)
+    const { id } = useParams()
+
+    useEffect(() => {
+        const fetchImageDetail = async (imageId) => {
+            try {
+            const response = await unsplash.get(`photos/${imageId}`)
+            const imageData = response.data
+
+            const { id, urls, description, likes, user } = imageData
+            const userName = user && user.name ? user.name : 'Unknown'
+
+            const selectedImageData = {
+                id,
+                imageUrl: urls.regular,
+                title: description,
+                likes,
+                userName,
+            }
+
+            setSelectedImage(selectedImageData);
+            } catch (error) {
+            console.error('Error', error)
+            }
+        }
+
+        fetchImageDetail(id)
+        }, [id])
+
     return (
-        <Wrapper>
+        <ViewDetailContainer>
             <Header />
             <HorizontalLine />
             <Container>
                 <LeftSection>
-                    <ImageUploader />
+                    {selectedImage ? (
+                    <>
+                        <ImageWrapper>
+                        <img src={selectedImage.imageUrl} alt={selectedImage.title} />
+                        </ImageWrapper>
+                    </>
+                    ) : (
+                    <p>Loading...</p>
+                    )}
                 </LeftSection>
 
                 <RightSection>
@@ -46,18 +86,19 @@ const CreatePost = () => {
                         </Link>
                     </ButtonContainer>
                 </RightSection>
+
             </Container>
-        </Wrapper>
+      </ViewDetailContainer>
     )
 }
+export default ViewDetailPost
 
-export default CreatePost
 
 
-const Wrapper = styled.div`
-    height: 100vh;
+const ViewDetailContainer = styled.div`
+    height: 90vh;
+    margin-bottom: 40px;
 `
-
 const HorizontalLine = styled.div`
     width: 100%;
     border-top: 1px solid #CBCBCB;
@@ -65,38 +106,39 @@ const HorizontalLine = styled.div`
     margin-bottom: 20px;
 `
 
-const CommonInput = `
-    border-radius: 0px;
-    border: none;
-    border-bottom: 1px solid #C7C7C7;
-    margin-bottom: 25px;
-    margin-top: 40px;
-    color: #3A3A3A;
-
-    &:focus {
-        outline: none;
-        box-shadow: none;
-        border-bottom: 1px solid gray;
-    }
-`
-
 const Container = styled.div`
     display: flex;
-    justify-content: space-between;
     font-family: Noto Sans;
     margin: 15%;
     margin-top: 30px;
     border-radius: 20px;
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.18);
 
-    padding: 60px 80px 60px 80px;
+    padding: 60px 70px 50px 70px;
     height: 80vh;
 `
 
 const LeftSection = styled.div`
-    width: 45%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 50%;
+    justify-content: center;
+
+    img {
+      width: 390px;
+      max-height: 480px;
+      object-fit: cover;
+      border-radius: 20px;
+    }
 `
 
+const ImageWrapper = styled.div`
+    position: relative;
+`
+
+// ------------
 const RightSection = styled.div`
     display: flex;
     flex-direction: column;
@@ -138,6 +180,21 @@ const UserInfo = styled.div`
     }
 `
 
+const CommonInput = `
+    border-radius: 0px;
+    border: none;
+    border-bottom: 1px solid #C7C7C7;
+    margin-bottom: 25px;
+    margin-top: 40px;
+    color: #3A3A3A;
+
+    &:focus {
+        outline: none;
+        box-shadow: none;
+        border-bottom: 1px solid gray;
+    }
+`
+
 const InputContainer1 = styled.div`
     display: flex;
     flex-direction: column;
@@ -163,3 +220,6 @@ const InputContainer2 = styled.div`
         font-weight: 300;
     }
 `
+
+
+

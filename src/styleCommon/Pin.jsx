@@ -37,17 +37,17 @@ const CommonPin = `
     }
 
     .title {
-    font-weight: 600;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 1;
-    overflow: hidden;
-    text-overflow: ellipsis;
+      font-weight: 600;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 1;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     &:hover .info {
-    opacity: 1;
-    visibility: visible;
+      opacity: 1;
+      visibility: visible;
     }
 `
 
@@ -64,17 +64,17 @@ export const PinWrapper1 = styled.div`
         align-items: center;
       }
     
-      .likes {
-        display: flex;
-        align-items: center;
-        cursor: pointer;
-        margin-right: 60px;
-      }
-    
-      .edit {
-        display: flex;
-        align-items: center;
-        cursor: pointer;
-        margin-right: 15px;
-      }
+    .likes {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      margin-right: 60px;
+    }
+  
+    .edit {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      margin-right: 15px;
+    }
 `
