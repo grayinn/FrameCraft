@@ -5,12 +5,12 @@ function SearchBar() {
   const [searchQuery, setSearchQuery] = useState("")
 
   const handleSearch = (query) => {
-    setSearchQuery(query);
+    setSearchQuery(query)
   }
 
   return (
     <div>
-      <Header onSearch={handleSearch} searchQuery={searchQuery} />
+      <Header onSearch={handleSearch} searchQuery={searchQuery}/>
     </div>
   )
 }

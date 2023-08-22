@@ -18,19 +18,19 @@ import ViewNoti from './ViewNoti'
 
 
 function Header({ onSearch }) {
-  const [searchQuery, setSearchQuery] = useState("");
-
+  // popup
   const [passwordModal, setPasswordModal] = useState(false)
   const [infoModal, setInfoModal] = useState(false)
-  const [showNotification, setShowNotification] = useState(false);
+  const [showNotification, setShowNotification] = useState(false)
 
   // search
+  const [searchQuery, setSearchQuery] = useState("")
+
   const handleSearch = (e) => {
     e.preventDefault()
     onSearch(searchQuery)
   }
 
-  // enter search
   const handleInputChange = (e) => {
     setSearchQuery(e.target.value);
   }
@@ -42,6 +42,7 @@ function Header({ onSearch }) {
     }
   }
 
+  
   const togglePasswordModal = () => {
     setPasswordModal(!passwordModal)
   }

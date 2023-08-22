@@ -6,7 +6,6 @@ export const Wrapper = styled.form`
 `
 export const Container = styled.div`
     display: flex;
-    flex: 1;
     align-items: center;
 
     margin-right: 3.5%;
@@ -24,7 +23,6 @@ export const SearchWrapper = styled.div`
 `
 export const SearchBarWapper = styled.div`
     display: flex;
-    flex: 1;
     background-color: #efefef;
     height: 38px;
     width: 100%;
@@ -42,8 +40,7 @@ export const SearchBarWapper = styled.div`
         flex: 1;
     }
 
-    form > input {
-        flex: 1;
+    input {
         background-color: transparent;
         border: none;
         width: 100%;

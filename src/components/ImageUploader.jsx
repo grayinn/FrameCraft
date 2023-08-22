@@ -36,9 +36,9 @@ function ImageUploader() {
             </label>
             {selectedImage && (
                 <img
-                src={selectedImage}
-                alt="Uploaded"
-                className='upload-image'
+                    src={selectedImage}
+                    alt="Uploaded"
+                    className='upload-image'
                 />
             )}
         </Container>

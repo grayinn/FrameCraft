@@ -33,8 +33,8 @@ function Home () {
               <h1>Find Stunning Images in Seconds</h1>
             </Content2>
             <Content3>
-              <p>Discover a vast collection of stunning images at FrameCraft, your go-to destination 
-                  for effortless image search.</p>
+              <p>Discover a vast collection of stunning images at FrameCraft, 
+                  your go-to destination for effortless image search.</p>
             </Content3>
           </ContentWrapper>
           <ImageLeft>
@@ -104,6 +104,7 @@ const CommonContent = `
   padding-left: 11%;
   color: #FFF;
   font-family: Fugaz One;
+  
   h1 {
     font-size: 100px;
     font-weight: 400;
@@ -160,9 +161,7 @@ const ImageRight = styled.div`
   }
 
   .box {
-    width: 100%;
     margin-bottom: 10px;
-    break-inside: avoid;
   }
 
   img {

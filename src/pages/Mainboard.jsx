@@ -12,21 +12,31 @@ import Header from '../components/Header'
 function Mainboard() {
   // search
   const [searchQuery, setSearchQuery] = useState("")
+  const [images, setImages] = useState([])
+
   const handleSearch = (query) => {
     setSearchQuery(query)
   }
 
-  const keywords = ['Typography', 'New an idea', 'Phoduct design image', 'Home decoration', 'Vintage costume design', 'Minimalist art', 'Package redesign Vinamilk', 'Home decoration']
+  const handleKeywordClick = (keyword) => {
+    setSearchQuery(keyword)
+  }
+
+  const keywords = ['Typography', 'New an idea', 'Phoduct design image', 
+                    'Home decoration', 'Vintage costume design', 'Minimalist art', 
+                    'Package redesign Vinamilk', 'Home decoration']
   const colors = ['#FFE4DE', '#82AFE1', '#D8F3FF', '#F3EED9', '#FFE4DE', '#82AFE1', '#D8F3FF']
+
+  
   const getKeywordColor = (index) => colors[index % colors.length]
 
-  const [images, setImages] = useState([])
+  
   const getImages = async (term) => {
     try {
       const response = await unsplash.get('search/photos', {
         params: {
           query: term,
-          per_page: 20,
+          per_page: 40,
         },
       })
 
@@ -53,7 +63,7 @@ function Mainboard() {
     if (searchQuery) {
       getImages(searchQuery)
     } else {
-      getImages("raining")
+      getImages("film random photo")
     }
   }, [searchQuery])
 
@@ -61,7 +71,9 @@ function Mainboard() {
   return (
     <Wrapper>
       <Header onSearch={handleSearch} />
+
       <HorizontalLine />
+
       <ButtonGroup>
         <Button1>
           <IconWrapper>
@@ -76,13 +88,19 @@ function Mainboard() {
           </IconWrapper>
         </Button2>
       </ButtonGroup>
+
       <KeywordsWrapper>
         {keywords.map((keyword, index) => (
-          <KeywordItem key={index} color={getKeywordColor(index)}>
+          <KeywordItem 
+            key={index} 
+            color={getKeywordColor(index)}
+            onClick={() => handleKeywordClick(keyword)}
+          >
             {keyword}
           </KeywordItem>
         ))}
       </KeywordsWrapper>
+      
       <MainboardWrapper>
         {images.map((image) => (
           <Link to={`/detail/${image.id}`} key={image.id}>
@@ -102,6 +120,9 @@ function Mainboard() {
 
 export default Mainboard
 
+const Wrapper = styled.div`
+`
+
 const MainboardWrapper = styled.div`
     margin: 1% 3.5% 3.5% 3.5%;
     columns: 5 250px;
@@ -112,8 +133,6 @@ const MainboardWrapper = styled.div`
     }
 `
 
-const Wrapper = styled.div`
-`
 const HorizontalLine = styled.div`
     width: 100%;
     border-top: 1px solid #CBCBCB;
@@ -215,8 +234,6 @@ const KeywordItem = styled.div`
     cursor: pointer;
     white-space: nowrap;
 `
-
-
 
 
 

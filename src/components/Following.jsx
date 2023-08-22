@@ -17,7 +17,7 @@ const UserCard = ({ avatar, name, username }) => {
         </Link>
         <div className="user-info-text">
             <Link to='./userprofile'>
-            <a href="/profile">{name}</a>
+                <a href="/profile">{name}</a>
             </Link>
             <span className="username">@{username}</span>
         </div>

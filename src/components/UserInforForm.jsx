@@ -8,7 +8,7 @@ import UserInfAVT from '../assets/image/UserInfAVT.svg'
 
 const UserInforForm = ({onClose}) => {
     const handleFormSubmit = (e) => {
-        e.preventDefault();
+        e.preventDefault()
     }
 
     return (
@@ -25,13 +25,18 @@ const UserInforForm = ({onClose}) => {
 
             <FormContainer>
                 <form onSubmit={handleFormSubmit}>
-
                     <div className="mb-2 row">
-                        <label htmlFor="name" className="col-sm-3 col-form-label form-label-sm">
+                        <label 
+                            htmlFor="name" 
+                            className="col-sm-3 col-form-label form-label-sm">
                             Name
                         </label>
                         <div className="col-sm-9">
-                            <input type="text" className="form-control" id="name" defaultValue="Nguyen Hong Nhung" />
+                            <input 
+                                type="text" 
+                                className="form-control" 
+                                id="name" 
+                                defaultValue="Nguyen Hong Nhung" />
                         </div>
                     </div>
 
@@ -40,7 +45,11 @@ const UserInforForm = ({onClose}) => {
                             Username
                         </label>
                         <div className="col-sm-9">
-                            <input type="text" className="form-control" id="username" defaultValue="@grayinn_" />
+                            <input 
+                                type="text" 
+                                className="form-control" 
+                                id="username" 
+                                defaultValue="@grayinn_" />
                         </div>
                     </div>
 
@@ -76,7 +85,11 @@ const UserInforForm = ({onClose}) => {
                             Phone
                         </label>
                         <div className="col-sm-9">
-                            <input type="text" className="form-control" id="phone" defaultValue="0123456789"/>
+                            <input 
+                                type="text" 
+                                className="form-control" 
+                                id="phone" 
+                                defaultValue="0123456789"/>
                         </div>
                     </div>
 
@@ -98,7 +111,11 @@ const UserInforForm = ({onClose}) => {
                             Email
                         </label>
                         <div className="col-sm-9">
-                            <input type="email" className="form-control" id="email" defaultValue="nguyenhongnhung@gmail.com"/>
+                            <input 
+                                type="email" 
+                                className="form-control" 
+                                id="email" 
+                                defaultValue="nguyenhongnhung@gmail.com"/>
                         </div>
                     </div>
 
@@ -107,7 +124,10 @@ const UserInforForm = ({onClose}) => {
                             Birthday
                         </label>
                         <div className="col-sm-9">
-                            <input type="text" className="form-control" id="birthday" />
+                            <input 
+                                type="text" 
+                                className="form-control" 
+                                id="birthday" />
                         </div>
                     </div>
 

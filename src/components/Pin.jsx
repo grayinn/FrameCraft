@@ -7,7 +7,6 @@ import AVTuser from '../assets/image/avatar_user.svg'
 
 function Pin({ imageUrl, title, likes, userName }) {
   const [isLiked, setIsLiked] = useState(false)
-
   const handleLike = (e) => {
     e.preventDefault()
     e.stopPropagation()
@@ -20,7 +19,6 @@ function Pin({ imageUrl, title, likes, userName }) {
         <img src={imageUrl} alt={title} />
         <PinInfo className="info">
           <PinTitle className='title'>{title}</PinTitle>
-
           <Likes className='likes' onClick={handleLike}>
             {isLiked ? (
               <FavoriteIcon style={{ paddingBottom: '3px', color: '#D9534F' }} />

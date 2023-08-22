@@ -16,6 +16,10 @@ function ViewDetailPost() {
     const { id } = useParams()
     const [isLiked, setIsLiked] = useState(false)
 
+    const handleLike = () => {
+      setIsLiked(!isLiked)
+    }
+
     // comment
     const [comments, setComments] = useState([])
 
@@ -40,11 +44,6 @@ function ViewDetailPost() {
       const updatedComments = comments.filter((comment) => comment.id !== id)
       setComments(updatedComments)
     }
-    
-    const handleLike = () => {
-      setIsLiked(!isLiked)
-    }
-
 
     useEffect(() => {
       const fetchImageDetail = async (imageId) => {

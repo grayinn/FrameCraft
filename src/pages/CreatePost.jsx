@@ -12,38 +12,25 @@ const CreatePost = () => {
             <Header />
             <HorizontalLine />
             <Container>
-                <LeftSection>
-                    <ImageUploader />
+                <LeftSection> 
+                    <ImageUploader /> 
                 </LeftSection>
 
                 <RightSection>
                     <UserInfo>
-                        <Link to='/profile'>
-                            <img src={Avatar} alt=""/>
-                        </Link>
-                            <div className="user-info-text">
-                                <Link to="/profile">
-                                    <span className="user-name">Nguyen Hong Nhung</span>
-                                </Link>
-                                <span className="username">@grayinn_</span>
-                            </div>
+                        <Link to='/profile'><img src={Avatar} alt=""/></Link>
+                        <div className="user-info-text">
+                            <Link to="/profile"><span className="user-name">Nguyen Hong Nhung</span></Link>
+                            <span className="username">@grayinn_</span>
+                        </div>
                     </UserInfo>
 
-                    <InputContainer1>
-                        <input type="text" placeholder="Enter your title" />
-                    </InputContainer1>
-                    <InputContainer2>
-                        <input type="text" placeholder="Enter your description" />
-                    </InputContainer2>
+                    <InputContainer1><input type="text" placeholder="Enter your title" /></InputContainer1>
+                    <InputContainer2><input type="text" placeholder="Enter your description" /></InputContainer2>
 
                     <ButtonContainer>
-                        <Link to='/mainpage'>
-                            <button className="cancel">Cancel</button>
-                        </Link>
-
-                        <Link to='/mainpage'>
-                            <button>Save</button>
-                        </Link>
+                        <Link to='/mainpage'><button className="cancel">Cancel</button></Link>
+                        <Link to='/mainpage'><button>Save</button></Link>
                     </ButtonContainer>
                 </RightSection>
             </Container>

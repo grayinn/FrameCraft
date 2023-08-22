@@ -3,7 +3,6 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import navbarlogo from '../assets/image/logo.svg'
 import styled from "styled-components"
-import 'bootstrap/dist/css/bootstrap.min.css'
 import { Wrapper, LogoWrapper, SearchBarWapper, IconButton, Container, SearchWrapper } from '../styleCommon/Header'
 
 function Navbar() {
@@ -46,9 +45,6 @@ export default Navbar
 
 const AuthButton = styled.div`
     display: flex;
-    > * {
-      flex-shrink: 1;
-    }
 `
 const CommonAuthButton = `
     font-size: 17px;

@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { Form } from 'react-bootstrap'
 import { styled } from 'styled-components'
 import axios from 'axios'
 import { toast } from 'react-toastify'
@@ -11,82 +12,77 @@ const Login = () => {
     const [password, setPassword] = useState('')
 
     const navigate = useNavigate()
-
+    
     const handleLogin = async (e) => {
-        e.preventDefault();
+        e.preventDefault()
         
         try {
             const response = await axios.get('http://localhost:3001/users', {
                 params: { email, password },
-            });
-
+            })
             if (response.data.length > 0) {
                 toast.success('Login successful.')
                 navigate('/mainpage')
             } else {
-                toast.error('Invalid credentials.');
+                toast.error('Invalid information.')
             }
             } catch (error) {
-            console.error('Error logging in:', error);
-            toast.error('An error occurred while logging in.');
+            console.error('Error logging in:', error)
+            toast.error('An error occurred while logging in.')
         }
     }
 
     return (
-        <WrapperLogin>
-            <form onSubmit={handleLogin}>
-                <h1>Log In</h1>
-                <Container>
-                    <div className='styled-email'>
-                        <input
-                            type="email"
-                            placeholder="Enter your email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                            autoComplete="new-email"
-                        />
-                    </div>
-                    <div className='styled-password'>
-                        <input
-                            type="password"
-                            placeholder="Enter your password"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                            autoComplete="new-password" 
-                        />
-                    </div>
-                </Container>
+        <WrapperLogin onSubmit={handleLogin}>
+            <h1>Log In</h1>
+            <FormGroup>
+                <StyledInput
+                    type="email"
+                    placeholder="Enter your email"
+                    style={{ marginBottom: '37px', marginTop: '8px'}}
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    autoComplete="new-email"
+                />
+                <StyledInput
+                    type="password"
+                    placeholder="Enter your password"
+                    style={{ marginBottom: '20px'}}
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    autoComplete="new-password" 
+                />
+            </FormGroup>
 
-                <StyledAuth>
-                    <div className='remember-me'>
-                        <input className='checkbox'
-                            type="checkbox"
-                            style={{ marginTop: '3px'}}
-                        />
-                        <span>Remember me</span>
-                    </div>
-                    <Link className='link-forgot' to="/forgotpassword">Forgot password</Link>
-                </StyledAuth>
+            <StyledAuth>
+                <div className='remember-me'>
+                    <input className='checkbox'
+                        type="checkbox"
+                        style={{ marginTop: '3px'}}
+                    />
+                    <span>Remember me</span>
+                </div>
+                <Link className='link-forgot' to="/forgotpassword">Forgot password</Link>
+            </StyledAuth>
 
-                <StyledButtonLogin>
-                    <button type="submit">Login</button> 
-                    <h6>OR</h6>
-                </StyledButtonLogin>
+            <StyledButtonLogin>
+                <button type="submit">Login</button> 
+                <h6>OR</h6>
+            </StyledButtonLogin>
 
-                <AuthLogin />
+            <AuthLogin />
 
-                <StyledConnectLogin>
-                    <p>Don't have an account?</p>
-                    <Link className='link-signup' to={'/signup'}>Sign up now!</Link>
-                </StyledConnectLogin>    
-            </form>
+            <StyledConnectLogin>
+                <p>Don't have an account?</p>
+                <AuthLink to={'/signup'}>Sign up now!</AuthLink>
+            </StyledConnectLogin>    
         </WrapperLogin>
     )
 }
 export default Login
 
 
-const WrapperLogin = styled.div`
+const WrapperLogin = styled.form`
     width: 38%;
     padding: 60px 50px 30px 50px;
     border-radius: 20px;
@@ -94,57 +90,32 @@ const WrapperLogin = styled.div`
     font-family: Noto Sans;
     background-color: white;
     margin: 2% 55%;
+
+    h1 {
+        height: 80px;
+    }
 `
 
-const CommonStyledInput = `
+const FormGroup = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+`
+
+const StyledInput = styled(Form.Control)`
     border-radius: 0px;
     border: none;
+    border-bottom: 1px solid #C7C7C7;
 
-    margin-bottom: 30px;
-
-    input {
-        border: none;
-        width: 100%;
-        padding: 6px;
-        border-bottom: 1px solid #C7C7C7;
-
-        &:focus {
-            outline: none;
-            border-bottom: 1px solid gray;
-        }
-    }
-
-`
-
-const Container = styled.div`
-    .styled-email {
-        ${CommonStyledInput}
-        margin-top: 50px;
-        margin-bottom: 40px;
-    }
-
-    .styled-password {
-        ${CommonStyledInput}
-        margin-bottom: 15px;
+    &:focus {
+        outline: none;
+        box-shadow: none;
+        border-bottom: 1px solid gray;
     }
 `
 
 const StyledAuth = styled.div`
     display: flex;
     align-items: center;
-    margin-top: 0;
-
-    .link-forgot {
-        color: #3A3A3A;
-        font-size: 14px;
-        font-weight: 400;
-        margin-left: auto;
-        text-decoration-line: underline;
-    
-        &:hover {
-            color: #D9534F;
-        }
-    }
 
     .remember-me {
         color: #3A3A3A;
@@ -159,6 +130,17 @@ const StyledAuth = styled.div`
         }
     }
 
+    
+    .link-forgot {
+        color: #3A3A3A;
+        font-size: 14px;
+        margin-left: auto;
+        text-decoration: underline;
+    
+        &:hover {
+            color: #D9534F;
+        }
+    }
 `
 
 const StyledButtonLogin = styled.div`
@@ -199,13 +181,13 @@ const StyledConnectLogin = styled.div`
         margin-right: 10px;
         margin-bottom: 0px;
     }
+`
 
-    .link-signup {
-        font-weight: 500;
-        color: #3A3A3A;
+const AuthLink = styled(Link)`
+    font-weight: 500;
+    color: #3A3A3A;
 
-        &:hover {
-            color: #D9534F;
-        }
+    &:hover {
+        color: #D9534F;
     }
 `

@@ -19,3 +19,6 @@ function FollowingModal({ showModal, closeModal }) {
     )
 }
 export default FollowingModal
+
+
+

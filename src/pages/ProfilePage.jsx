@@ -72,9 +72,7 @@ function ProfilePage() {
                     </ButtonGroupCover>
                 </CoverContainer>
 
-                <Avatar>
-                    <img src={avatarprofile} alt=""/>
-                </Avatar>
+                <Avatar><img src={avatarprofile} alt=""/></Avatar>
 
                 <ProfileInformation>
                     <ProfileDetails>
@@ -83,10 +81,7 @@ function ProfilePage() {
                             <p>@grayinn</p>
                         </Name>
                         <Quantity>
-                            <FollowButton>
-                                <span className="bold-text">23 </span>Posts
-                            </FollowButton>
-
+                            <FollowButton><span className="bold-text">23 </span>Posts</FollowButton>
                             <FollowButton onClick={toggleFollowerModal}>
                                 <span className="bold-text">118 </span>Followers
                             </FollowButton>
@@ -97,9 +92,7 @@ function ProfilePage() {
                             </FollowButton>
                             <FollowingModal showModal={followingModal} closeModal={toggleFollowingModal} />
                         </Quantity>
-                        <Desc>
-                            <p>"Create your own sunshine and spread positivity wherever you go."</p>
-                        </Desc>
+                        <Desc><p>"Create your own sunshine and spread positivity wherever you go."</p></Desc>
                     </ProfileDetails>
 
                     <ButtonGroup>
@@ -112,12 +105,11 @@ function ProfilePage() {
                         <Button2>
                             <IconWrapper>
                                 <FavoriteIcon className='icon2'/>
-                                <Link to='/profilefavorite'>
-                                    <p>Favorites</p>
-                                </Link>
+                                <Link to='/profilefavorite'><p>Favorites</p></Link>
                             </IconWrapper>
                         </Button2>
                     </ButtonGroup>
+                    
                 </ProfileInformation>
             </Container>
 
